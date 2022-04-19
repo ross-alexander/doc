@@ -1,0 +1,368 @@
+\appendix
+
+\chapter{Underlying Mathematics}
+\label{maths}
+
+\section{Random variables}
+
+\subsection{Definition}
+
+A random variable is a variable which can take a selection of values,
+either countable (whether finite or infinite), or uncountable, and is
+described as {\em discrete} or {\em continuous} respectively.
+
+Associated with every random variable is a collection of probability
+functions.  For all random variables there is the {\em probability
+distribution function} which is defined as $F_X(x) = P(X \leq x)$.
+For discrete random variables there is also the {\em probability
+function} defined as $f_X(x) = P(X = x)$.  The continuous analogue is
+the {\em probability density function} $f_X$.  These are related in
+the following way.  For discrete random variables
+\[ F_X(x) = P(X \leq x) = \sum_{j = - \infty}^{x}{P(X = j)} \]
+and for continuous random variables
+\[ F_X(x) = P(X \leq x) = \int_{ - \infty}^{x}{f_X(t) dt} \]
+
+\subsection{Moments of random variables}
+\label{append:moments}
+
+{\em Moments} are values which describe the behaviour of a random
+variable.  These include the {\em mean} and {\em variance}.  These are
+calculated from the probability function or probability density
+function.  The first moment is the mean $\mu$, which gives the {\em
+average} or expected output of a random variable.
+
+\[ \mu = E[X] = \sum_{t = -\infty}^{\infty}{t f_X(t)} \]
+for discrete random variables and for continuous random variables
+\[ \mu = E[X] = \int_{-\infty}^{\infty}{t f_X(t) dt} \]
+
+The next moment is the variance $\mbox{Var}[X] = \sigma^2$ where
+$\sigma$ is the {\em standard deviation}.  This is a measure of the
+{\em spread} of a distribution given by how far from the mean the
+values lie.  This is calculated by $E[(X-\mu)^2]$.  It is also known
+as the second moment.  Higher order moments are calculated by
+expectation of higher orders of $X$.
+
+\[ \sigma^2 = E[(X-\mu)^2] = E[X(X-1)] - \mu(\mu-1) = \sum_{t =
+-\infty}^{\infty}{x(x-1) f_X(t)} - \mu(\mu-1) \]
+for discrete random variables and for continuous random variables
+\[ \sigma^2 = E[(X-\mu)^2] = E[X^2] - \mu^2 =
+\int_{-\infty}^{\infty}{t^2 f_X(t) dt} - \mu^2 \]
+
+\subsection{Collections of random variables}
+
+Often more than one random variable is required.  For this we
+construct vectors of random variables $X = (X_1, X_2, \ldots, X_{n-1},
+X_n)$.  It is common for the $X_i$'s to be {\em independent and
+identically distributed (iid)}.
+
+\subsection{Moment generating functions}
+
+\subsubsection{Definition}
+
+A {\em Moment generating function} (mgf) is a transform on a
+probability function or probability density function for discrete and
+continuous distributions respectively.  It is defined by
+\[ \mbox{M}_X(t) = \mbox{E}[e^{Xt}] \]
+For discrete distributions this equates to
+\[ \mbox{M}_X(t) = \mbox{E}[e^{Xt}] = \sum_{x =
+-\infty}^{\infty}e^{xt}f_X(x) \]
+and for continuous distributions
+\[ \mbox{M}_X(t) = \mbox{E}[e^{Xt}] = \int_{-\infty}^{\infty}e^{xt}f_X(x) dx \]
+
+\subsubsection{Sums of independent random variables}
+
+If ${X_i : i = 1 \ldots n}$ are independent random variables and $Y =
+\sum_{i = 1}^{n}{X_i}$ then the moment generating function of $Y$ is
+\[
+M_Y(t) = M_{X_1 + \cdots + X_n}(t) = \prod_{i = 1}^{n}{M_{X_i}(t)}
+\]
+
+\section{Poisson processes}
+
+\subsection{Definition}
+
+The Poisson process is a model for events (arrivals/occurrences) that
+happen randomly in time or space.  Suppose that arrivals occur
+randomly in the interval $(0,t]$.  Let N(t) be the number of events by
+time $t$.
+
+A Poisson process with intensity (or rate) $\lambda, 0 < \lambda <
+\infty$ is a process
+\[
+  N = {N(t) : t \geq 0} \mbox{ taking values in } S = {0,1,2,3, \ldots}
+\]
+\begin{itemize}
+\item $N(0) = 0$ ; if $s \leq t$ then $N(s) \leq N(t)$.
+\item If $s < t$ then $N(t) - N(s)$ in the interval $(s,t]$ is
+independent of the number and times of arrivals during $(0,t]$.
+\item The number of events in any interval of length $t$ is
+distributed as a Poisson$(\lambda t)$ random variable where
+\[
+  P(N(t) = j) = f_X(j) =
+    \left\{
+      \begin{array}{ll}
+ 	\frac{e^{-\lambda t}(\lambda t)^j}{j!} & j \geq 0 \\
+	0 & \mbox{otherwise}
+      \end{array}
+    \right.
+\]
+with $\mbox{E}[X] = \lambda t$ and $\mbox{Var}[X] = \lambda t$.
+\end{itemize}
+
+Poisson processes often arise in operations research and are
+commonly used as a first approximation to an arrival process.  The
+behaviour of the Poisson process is very well understood.
+
+\subsection{Inter-arrival times}
+
+The number of events within a given time period has a Poisson
+distribution.  It can be shown that the times between subsequent
+events are exponentially distributed.
+
+\[
+  f_X(x) =
+    \left\{
+      \begin{array}{ll}
+ 	\lambda e^{-\lambda x} & x > 0 \\
+	0 & \mbox{otherwise}
+      \end{array}
+    \right.
+\]
+with $\mbox{E}[X] = \frac{1}{\lambda}$ and $\mbox{Var}[X] =
+\frac{1}{\lambda^2}$.
+
+Using this it is possible to generate sample realisations of the
+Poisson process for statistical analysis.
+
+\subsection{Simple model using Poisson distribution}
+
+In the simplest model we just generate pseudo packets with exponential
+inter-arrival times.  This is done by transforming a uniform $U(0,1)$
+distribution, which is just the standard C {\em random()} function, to
+an exponential distribution $\mbox{Exp}(\lambda)$.
+
+\subsection{Moment Generating Function}
+
+The moment generating function of a Poisson distribution $X_i$ with
+parameter $\lambda_i t$ is
+\[
+\mbox{M}_X(s) = \mbox{E}[e^{Xs}] = e^{\lambda t(e^s - 1)}
+\]
+hence the aggregation of several Poisson distributions is
+\[ \mbox{M}_X(s) = \prod_{i=1}^n{e^{\lambda_i t(e^s-1)}} =
+e^{\lambda^* t(e^s-1)} \]
+where $\lambda^* = \sum_{i=1}^n{\lambda_i}$, giving us a Poisson
+distribution with parameter $\lambda^*t$.
+
+\section{Common distribution functions}
+
+\subsection{Exponential}
+\label{append:expon}
+
+The exponential$(\lambda)$ distribution has the density function
+\[ f_X(x) = \left\{ \begin{array}{ll}
+\lambda e^{-\lambda x} & x \geq 0 (\lambda > 0)\\
+0 & x < 0 \\
+\end{array} \right.
+ \]
+and distribution function
+\[ F_X(x) =
+\left\{\begin{array}{ll}
+1 - e^{-\lambda x} & x \geq 0 \\
+0 & x < 0 \\
+\end{array} \right.
+\]
+
+\subsection{Gamma}
+
+The gamma$(k, \lambda)$ distribution has the density function
+\[
+f_X(x) =
+\left\{ \begin{array}{ll}
+\frac{\lambda^k}{\Gamma(k)}x^{k-1}e^{- \lambda x} & x \geq 0 (\lambda > 0, k > 0) \\
+0 & x < 0 \\
+\end{array} \right.
+\]
+
+\subsection{Chi-Squared}
+
+The chi-squared with $\nu$ degrees of freedom $\chi^2_\nu$ has the density function
+\[
+f_X(x) =
+\left\{ \begin{array}{ll}
+\frac{1}{2^{\frac{\nu}{2}\Gamma(\frac{\nu}{2})}}x^{\frac{\nu}{2}-1}e^{-\frac{x}{2}} & x \geq 0 (\nu > 0) \\
+0 & x < 0 \\
+\end{array} \right.
+\]
+
+\subsection{Normal}
+
+The normal$(\mu, \sigma^2)$ has the density function
+\[
+f_X(x) = \frac{1}{\sqrt{2 \pi \sigma^2}}e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+\]
+with no closed integral form except when the bounds are trivial $(0, -\infty, +\infty)$.
+
+\subsection{Student's t}
+
+Student's t-Distribution with $\nu$ degrees of freedom $t_\nu$ has the density function
+\[
+f_T(t) = \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\nu \pi}\Gamma\left(\frac{\nu}{2}\right)(1+\frac{t^2}{v})^\frac{\nu + 1}{2}} \; -\infty <t < \infty
+\]
+
+\subsection{Cauchy}
+
+A Cauchy distribution is a T distribution with $\nu = 1$
+\[
+f_T(t) = \frac{1}{\pi(1+t^2)} \; -\infty < t < \infty
+\]
+
+\section{Example of aggregated Poisson processes}
+\label{appendix:example1}
+
+Aggregating multiple Poisson random variables $(X_1,X_2,\ldots)$ gives
+another Poisson distribution.  Let $\bar X
+=\sum_{i=1}^{n}{\frac{X_i}{n}}$.  Using moment generating functions we
+see \[ \mbox{M}_{\bar X}(s) = \left[\mbox{M}_X(\frac{s}{n})\right]^n\]
+so with Poisson random variables we get
+\[
+\mbox{M}_{\bar X}(s) = \left[e^{\lambda t(e^{\frac{s}{n}}-1)}\right]^n
+= e^{n \lambda t(e^\frac{s}{n} - 1)}
+\]
+
+Taking the log of $\mbox{M}_{\bar X}(s)$ we get
+
+\[
+C_{\bar X}(s) = n \lambda t(e^\frac{s}{n} - 1)
+\]
+
+Differentiating this once gives us 
+
+\[
+C'_{\bar X}(s) = \lambda t e^\frac{s}{n}
+\]
+
+and again to give
+
+\[
+C''_{\bar X}(s)  =  \frac{\lambda t}{n} e^\frac{s}{n}
+\]
+
+hence
+
+\[
+\mu_{\bar X} = C'(0-) = \lambda t
+\]
+
+and
+
+\[
+\sigma^2_{\bar X} = C''(0-) = \frac{\lambda t}{n}
+\]
+
+\chapter{Source Code}
+\label{code}
+
+\renewcommand{\baselinestretch}{1.0}
+
+\section{The Network tracer}
+
+\subsubsection{common.h}
+
+\begin{scriptsize}
+\verbatiminput{src-pc/common.h}
+\end{scriptsize}
+
+\subsubsection{asmpkt.asm}
+
+\begin{scriptsize}
+\verbatiminput{src-pc/asmpkt.asm}
+\end{scriptsize}
+
+\subsubsection{hwtimer.asm}
+
+\begin{scriptsize}
+\verbatiminput{src-pc/hwtimer.asm}
+\end{scriptsize}
+
+\subsubsection{driver.c}
+
+\begin{scriptsize}
+\verbatiminput{src-pc/driver.c}
+\end{scriptsize}
+
+\subsubsection{main.c}
+
+\begin{scriptsize}
+\verbatiminput{src-pc/main.c}
+\end{scriptsize}
+
+\subsection{Time error correction program}
+
+\subsubsection{correct.c}
+
+\begin{scriptsize}
+\verbatiminput{src/correct.c}
+\end{scriptsize}
+
+\section{Analysis programs}
+
+\subsection{Common code}
+
+\subsubsection{\texttt{mathlib.h}}
+
+\begin{scriptsize}
+\verbatiminput{src/mathlib.h}
+\end{scriptsize}
+
+\subsubsection{\texttt{common.h}}
+
+\begin{scriptsize}
+\verbatiminput{src/common.h}
+\end{scriptsize}
+
+\subsubsection{\texttt{vector.h}}
+
+\begin{scriptsize}
+\verbatiminput{src/vector.h}
+\end{scriptsize}
+
+\subsubsection{\texttt{common.cc}}
+
+\begin{scriptsize}
+\verbatiminput{src/common.h}
+\end{scriptsize}
+
+\subsection{Arrival}
+
+\subsubsection{\texttt{arrival.cc}}
+
+\begin{scriptsize}
+\verbatiminput{src/arrival.cc}
+\end{scriptsize}
+
+\subsection{Stat}
+
+\subsubsection{\texttt{stat.cc}}
+
+\begin{scriptsize}
+\verbatiminput{src/stat.cc}
+\end{scriptsize}
+
+\subsection{Hist}
+
+\subsubsection{\texttt{hist.cc}}
+
+\begin{scriptsize}
+\verbatiminput{src/hist.cc}
+\end{scriptsize}
+
+\subsection{Single-event}
+
+\subsubsection{\texttt{single-event.cc}}
+
+\begin{scriptsize}
+\verbatiminput{src/single-event.cc}
+\end{scriptsize}
+
+\renewcommand{\baselinestretch}{1.5}

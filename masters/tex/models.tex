@@ -1,0 +1,550 @@
+\chapter{Stochastic Models of Packet Arrivals}
+\label{models}
+
+To simulate packet arrivals we must first define models of packet
+arrivals.  Most of the early work in this area used the Poisson
+process \cite{grimmett} as the basis of its models.  Many more complex
+models have been used but many rely on the Poisson process somewhere
+for the packet arrival distribution.  The Poisson process has the
+advantage of being well understood and mathematically tractable.
+
+
+The Poisson process is related to the exponential distribution (\S
+\ref{append:expon}).  This distribution is one of the most widely
+used in statistics and the basis for several others.  One feature of
+the distribution is it has a finite mean and variance (\S
+\ref{append:moments}).  The exponential distribution has the property
+that the time spent waiting for an event (that will occur within a
+time that is exponentially distributed) will not give you any
+information about when it will occur.  This is known as the {\em
+memoryless} property of the exponential (and its discrete counterpart
+the geometric) distribution.
+
+One important area of interest are processes which have inter-renewal
+times with infinite moments.  We are mainly interested in those
+distributions with infinite variance such as Cauchy,
+$\mbox{t}_2\mbox{-distribution}$ and Pareto.
+
+The research into infinite variance distribution renewal processes has
+led to the idea of {\em fractal}, or {\em self similar} renewal
+processes.  The basis of these names has to do with similar behaviour
+at different time scales.  Poisson processes become smoother as you
+observe their average behaviour over longer time intervals.  Pure
+fractal processes do not smoothe so that they are invariant with
+respect to the time period over which you observe them.
+
+Such behaviour has serious consequences when applied to traffic models
+because it indicates that you will always get bursts of traffic at
+every time scale and you can never allocate enough queueing resources
+to cope with every situation.
+
+Much of the original work into fractals was done by Mandelbrot
+\cite{IEEE:Mandelbrot} but it is only recently that his work has been
+applied to communications traffic by researchers at Bellcore
+\cite{Bell:1},\cite{Bell:2}, \cite{Bell:3}, \cite{Bell:4}.
+
+The use of finite variance distributions was challenged in
+\cite{Bell:1}.  In this thesis we examine the behaviour of Poisson
+process based models and demonstrate that they are inadequate for
+modelling network traffic observed on the University of Auckland
+campus network.
+
+The researchers at Bellcore produced traces for Ethernet LAN traffic,
+ISDN packet traffic over public switched telephone systems and the
+output of variable bit rate video encoders.  The earlier chapters of
+this thesis attempted to duplicate their recording of Ethernet traffic
+and produce comparable results as confirmation of their work.
+
+The Bellcore work then went on to examine many of the self-similar
+properties of the traffic and its relationship to theoretical work in
+fractal behaviour.  In this thesis we simulate various statistical
+models to see whether the observed behaviour can be reproduced.
+
+\section{Poisson process}
+
+\subsection{Definition}
+
+A Poisson process is a counting process
+\[ N = \{ N(t) : t \geq 0 \} \]
+taking values from
+\[ S = \{ 0,1,2,3, \ldots \} \]
+conditioned on
+\[N(0) = 0\]
+and
+\[ \mbox{if } s < t \mbox{ then } N(s) \leq N(t) \; \forall s,t \in {\mathbb R} \]
+defined by
+\[
+\begin{array}{c}
+P(N(t+h) = n + m | N(t) = n) = \\
+P(N(t+h) - N(t) = m) = \\
+\left\{
+\begin{array}{rl}
+1 - \lambda h + o(h) & m = 0 \\
+\lambda h + o(h) & m = 1 \\
+o(h) & m > 1 \\
+\end{array}
+\right. \\
+\end{array}
+\]
+
+\subsection{Remarks}
+
+The Poisson Process is one of the most common and simple stochastic
+processes in statistics and operations research.  Poisson processes
+occur in both time and space and are characterised by a single
+parameter $\lambda$.  This parameter $\lambda$ is a measure of the
+rate or intensity of the process.
+
+Poisson processes in time occur along a real valued time line,
+normally ${\mathbb R}^+$.  They create single events along the line as they
+advance towards $+\infty$.
+
+The above definition has the following consequences.
+
+\begin{itemize}
+\item	No event may occur at exactly time zero.
+
+\item	The numbers of events in two non-overlapping time periods are
+independent.  For example knowing the number of events in the period
+$(0, t]$ will not give you any extra information about the number of
+events in the period $(t, t+s]$, that is $N(t+s) - N(t) \sim N(s) \;
+\forall s,t \in {\mathbb R}^+$.
+
+\item	The number of events in the period $(0, t]$ is distributed
+as a Poisson$(\lambda t)$ random variable, that is $P(N(t) = x) =
+\frac{e^{-\lambda t}{\lambda t}^x}{x!}$, independently of all other
+inter-event times.
+
+\end{itemize}
+
+It can easily be shown that these give us the following.
+
+\begin{itemize}
+\item	The time between any two successive events is distributed
+$\mbox{Exponential}(\lambda)$, that is $P(T_i - T_{i-1} \geq t) =
+e^{-\lambda t}$.
+
+\end{itemize}
+
+\section{Renewal processes}
+
+A renewal process can be seen as a generalisation of a Poisson
+process.  The distribution of the times between renewal events are
+independent and identically distributed random variables.  For example
+the Poisson process is a renewal process because the inter-arrival
+times are independent and identically distributed (as exponentially
+distributed random variables).  Renewal processes periodically
+restart themselves at the renewal points, forgetting their previous
+history.
+
+The behaviour between renewal events may be complex.  Often the
+renewal event is a marked event within a more complex process.  An
+example is the simple random walk where the return to the origin or
+return to zero can be used as the renewal event.  This is to maintain
+consistency with the concept that when a renewal occurs it is as if
+the process were starting from time zero.
+
+\subsection{Simple renewal processes}
+
+\subsection{Definition}
+
+Let
+\[ T = \{T(k) : k \geq 0 \; k \in {\mathbb N} \} \]
+where $T(k)$ is the time of the $k^{th}$ event, conditioned on
+\[ T(0) = 0 \]
+Let
+\[ \begin{array}{c}
+R_k = T(k) - T(k-1) \\
+R_k > 0 \; \;  k \geq 1 \\
+\end{array}
+\]
+Then this is a renewal process if there exists a
+distribution function $F_R(x)$ such that
+
+\[ P(R_k \leq x) = P(R \leq x) = F_R(x) \; \forall x > 0 \mbox{ and } \forall k\geq 1 \]
+Furthermore, the $R_k$ are mutually independent of one another.  That
+is, inter-event times are independent and identically distributed.
+
+\subsection{Remarks}
+
+In simple renewal processes the process restarts every time an event
+occurs.  This is the simplest type of renewal process and is very
+similar to the Poisson process.  The main difference is that the
+Poisson process relies on events having an exponentially distributed
+inter-arrival time.  In a renewal process any probability distribution
+may be used for the time until the next renewal.
+
+Because the time until the next renewal has to be non negative
+many common distributions such as the normal or Cauchy have to be
+modified.  This can be done by folding the negative half of the
+density onto the positive real line.  The simplest method is sampling
+from the distribution and then taking the absolute value.
+
+\subsection{Processes with internal structure}
+
+Many processes are more complex then single events.  Between renewals
+the process may produce other events.  A M/M/1 queue is a simple
+queueing process where the time between arrivals is exponentially
+distributed and the time taken for the customer at the head of the
+queue to be served and leave is also exponentially distributed.  We
+can make the renewal event the event of the system becoming empty.
+The times when the system becomes empty form a renewal process with
+the queueing process becoming hidden.
+
+\section{Modulated processes}
+
+Modulated processes are multi-state stochastic processes.  They
+consist of individual states and a set of stochastic transitions which
+govern the process' change from one state to another.
+
+The process is in exactly one of the states at any given time.  While
+it is in a state it acts in accordance with the behaviour that state
+specifies.  The process may change state at any time and must enter
+another state straight away.  The rules governing how long the process
+stays in a state and which states can follow it may be state dependent
+or be controlled by an underlying global process.
+
+The difference between modulated processes and renewal process is that
+each state in the modulated process has an associated renewal process
+which produces events.  When a new state is entered a new renewal
+process corresponding to that state is created rather than each
+renewal process continuing to run but being hidden, producing events
+which are then discarded.
+
+For Markov modulated Poisson processes there is no difference because
+of the memoryless property of the exponential distribution but for
+more general processes this distinction is important.  This is due to
+the {\em edge effects} created by the renewal process creation at
+state changes.  If the lifetimes for the states are short causing
+rapid state changing then these edge effects may seriously affect the
+overall behaviour of the process.
+
+\subsection{Markov modulated Poisson processes}
+
+\subsubsection{Definition}
+
+Let
+
+\[ \mathcal{S} = \{s : s = 0,1,2,3,\ldots, N \} \]
+
+be a set of states with associated arrival rates $\lambda_s$, where
+$\lambda_s$ is the arrival rate of the underlying Poisson process
+while in state $s$.  Let
+
+\[ N = \{ N(t) : t \geq 0 \} \]
+
+be the underlying Poisson process of rate $\lambda_{S(t)}$.  Let
+
+\[
+S = \{ S(t) : S(t) = s \in \mathcal{S} \; \; \forall t \geq 0 \; \; t \in {\mathbb R} \}
+\]
+
+be the state of the process at time $t$.  Let
+
+\[
+P(S(t+\delta) = k, \; 0 < \delta \leq h | S(t) = k) =
+e^{- \mu_k h}
+\]
+where $\mu_k \in {\mathbb R}^+$ are state lifetime parameters, with
+\[
+\begin{array}{c}
+P(S(t+h) = k | S(t) = j, h = \mbox{inf}\{S(t + \delta) \neq j \;,
+\delta > 0\}) = M[j,k] \; \forall j,k \in {\mathcal S}, \\
+M = M[m,n] \\
+\end{array}
+\]
+is a stochastic $|\mathcal S| \times |\mathcal S|$ matrix such that
+\[
+\sum_n M[m,n] = 1 \; \; \forall m \in {\mathcal S}
+\]
+
+\subsubsection{Remarks}
+
+Markov modulated Poisson processes are the simplest of the modulated
+processes.  Each state defines the arrival rate of an underlying
+Poisson process.
+
+The amount of time the process stays in a state is exponentially
+distributed with a stochastic transition matrix governing the next
+state entered.
+
+Markov modulated Poisson processes are often used to generate the
+arrivals for standard queueing models.  This is so that more
+variability is introduced into the model and to add extra realism
+rather than having a constant arrival rate.
+
+\subsection{Generalised modulated processes}
+\label{models:genmodproc}
+
+\subsubsection{Definition}
+
+Let
+\[ {\mathcal S} = \{s : s = 0,1,2,3,\ldots, N \} \]
+be a set of state with associated distribution functions
+\[
+L_s : (0, +\infty) \rightarrow [0,1] \; s \in {\mathcal S}
+\]
+Let
+\[
+S = \{ S(t) : S(t) = s \in {\mathcal S} \; \; \forall t \geq 0 \; \; t \in {\mathbb R} \}
+\]
+be the state of the process at time $t$, $c(t)$ be the number of state
+changes by time $t$, $\sigma \in {\mathcal S}$ be a starting state $S(0) =
+\sigma$ and $\tau_n$ be the time of the $n^{th}$ change of state.
+\[
+\begin{array}{rcl}
+\tau_0 & = & 0 \\
+\tau_{n+1} & = & \mbox{inf}\{t : t > \tau_n, S(t) \neq S(\tau_n) \} \\
+\\
+c(t) = n & \mbox{iff} & \tau_n  \leq t \mbox{ and } \tau_{n+1} > t \\
+\end{array}
+\]
+Let
+\[ N_i = \{N_i(t) | N_i(0) = 0 \} \]
+be a collection of simple renewal processes where $N_i(t) = k$ if $k$
+events have occurred by time $(0,t]$ and $i \in {\mathcal S}$.  These are
+template renewal processes.
+
+Let
+\[
+P(\tau_{\alpha + 1} - \tau_\alpha > h) = 1 - L_{S(\tau_\alpha)}(h)
+\]
+with
+\[
+P(S(\tau_{\alpha + 1}) = k \;| \; S(\tau_\alpha) = j) = M[j,k] \; \forall j,k \in {\mathcal S}
+\]
+where
+\[
+M = M[m,n] \; \; 0 \leq m , n \leq |{\mathcal S}|
+\]
+is a stochastic matrix such that
+\[
+\sum_n M[m,n] = 1 \; \;  m \in {\mathcal S}.
+\]
+Let the current renewal process at time $t$ be
+\[
+Q_\alpha = \{Q_\alpha(t) \;| \; Q_\alpha(\tau_\alpha) = 0\} \mbox{ where } \tau_{\alpha} \leq t < \tau_{\alpha + 1}
+\]
+where
+\[
+P(Q_{\alpha}(t) = k) = P(N_{S(t)}(t - \tau_\alpha) = k)
+\]
+so that the total number of events by time $t$ is given by
+\[
+R(t) = \sum^{c(t)-1}_{i=0}{Q_i(\tau_{i+1})} + Q_{c(t)}(t)
+\]
+\subsubsection{Remarks}
+
+A generalised modulated process consists of a set of states and a
+stochastic transition matrix but unlike the Markov modulated Poisson
+process it is not limited to only using the exponential distribution
+as a lifetime distribution.
+
+Each state has two distributions associated with it.  One is a renewal
+process which generates events and the other is a lifetime
+distribution.  When the process enters the state a lifetime is
+generated from the lifetime distribution.  The process will remain in
+that state for the period of the lifetime.
+
+While in that state a renewal process will run generating events.  If
+an event is generated which would have occured beyond the lifetime of
+the state then it is ignored.  Any generalised renewal process is able
+to run provided it is independent of all other states.
+
+Once the lifetime of a state has expired then the process chooses a new
+state to enter based on the probabilities in the transition matrix.
+The transition matrix is constant and independent of any activity
+within any of the states.
+
+\section{Merged Processes}
+\label{models:mergedprocs}
+
+\subsection{Definition}
+
+Let
+\[ {\mathcal C} = \{c:c = 0,1,2,3,\ldots, N\} \]
+be a set with associated general renewal processes
+\[R_c(t), \; c \in {\mathcal C} \]
+
+Let
+\[ T_c = \left< T_{c_1}, T_{c_2}, \ldots \right> \]
+ be the sequence of renewal times of the process $R_c$.
+
+Let 
+\[ T = \left<T_1, T_2, T_3, \ldots \right> = \bigcup^{\mathcal C}T_c \]
+ be an ordered sequence such that 
+\[ T_i \leq T_j \; \forall i,k \in {\mathbb N} \]
+then T is a merged process.
+
+\subsection{Remarks}
+
+A merged process consists of multiple renewal or modulated processes
+running concurrently with their resulting event traces merged
+together.  In most models each process is identical and all must be
+mutually independent.
+
+The idea behind merged (or superimposed) processes is to capture
+complex behaviour using simply renewal processes with few parameters.
+This would give us a much simpler model without losing the complex
+nature of the real behaviour.
+
+\section{Slowly decaying variances}
+
+\subsection{Processes with infinite moments}
+
+There are several well known distributions with infinite moments.  The
+t-distribution has infinite variance for $\nu = 2$ and infinite mean
+and variance for $\nu = 1$ (this is also known as the Cauchy
+distribution).  Another is the Pareto distribution.  This is a less
+common distribution and is not often used in the area of stochastic
+process modelling.
+
+\subsubsection{Definition of the Pareto distribution}
+
+\[
+F_X(x) = P(X \leq x) = 1 - \frac{\beta^\alpha}{(\beta + x)^\alpha}
+\]
+and
+\[
+f_X(x) = \frac{\alpha \beta}{(\beta + x)^{\alpha + 1}}
+\]
+so that $\alpha = 2.5$ with give a distribution with finite mean and
+variance, $\alpha = 1.5$ will give infinite variance and $\alpha =
+0.5$ will have both infinite mean and variance.
+
+\subsection{Aggregating stochastic processes}
+\label{models:aggregation}
+
+One of the methods for testing whether a sample has been generated
+from a Poisson process is to see how the variance behaves under
+averaged aggregation \cite{Bell:5}.
+
+Let
+\[
+X = (X_1, X_2, X_3, \ldots)
+\]
+be a stationary stochastic process (for us $X_k$ will denote the
+number of events per time unit).  For each $m = 1,2,3,\dots$ let
+\[
+X^{(m)} = (X^{(m)}_k : k = 1,2,3,\ldots) 
+\]
+denote a new (aggregated) time series obtained by averaging the original
+series $X$ over non-overlapping blocks of size $m$.  That is for $m =
+1,2,3,\ldots$, $X^{(m)}$ is given by
+\begin{equation}
+X^{(m)}_k = \frac{1}{m}(X_{km - m + 1} + \cdots + X_{km}) \; (k = 1,2,3,\ldots)
+\label{models:eq1}
+\end{equation}
+Note that $X^{(m)}$ defines a new stationary process for each $m$.
+ 
+
+Consider any collection of random variables which have the following
+properties
+
+\begin{itemize}
+
+\item	All variables are independent and identically distributed.
+
+\item	Their probability distribution have finite mean $\mu$ and
+variance $\sigma^2 \in {\mathbb R}^+$.
+
+\end{itemize}
+
+Let
+\[
+X = (X_1,X_2,\dots,X_n)
+\]
+and
+\[
+{\bar X} = \sum^n_{i=1}\frac{X_i}{n} = \frac{1}{n}\sum^n_{i=1}X_i
+\]
+then
+\[
+\mu_{\bar X} = \mbox{E}({\bar X}) = \mbox{E}( \frac{1}{n}\sum^n_{i=1}X_i)
+= \frac{1}{n}\sum^n_{i=1}\mbox{E}(X_i) = \mu
+\]
+and
+\[
+\sigma^2_{\bar X} = \mbox{Var}({\bar X}) = \mbox{Var}(\frac{1}{n}\sum^n_{i=1}X_i) = \frac{1}{n^2}\sum^n_{i=1}\mbox{Var}(X_i) = \frac{\sigma^2}{n}
+\]
+
+From above we can see that for aggregated renewal processes with finite
+mean and variance the variance is of order $n^{-1}$ under
+averaging.  The decreasing of variance is called {\em decaying
+variance}.  So from equation~\ref{models:eq1} we obtain
+
+\begin{equation}
+\mbox{Var}(X^{(m)}) \sim a_1 m^{-1}, \mbox{ as } m \rightarrow \infty
+\end{equation}
+
+With {\em slowly decaying variance} we do not get this, instead we observe
+\begin{equation}
+\mbox{Var}(X^{(m)}) \sim a_2 m^{-\beta}, 0 < \beta < 1 \mbox{ as } m \rightarrow \infty
+\label{models:eq3}
+\end{equation}
+
+For summation $n{\bar X} = \sum^n_{i = 1}X_i$ we get $u_{n{\bar X}} = n
+\lambda t$ and $\sigma^2_{n {\bar X}} = n \lambda t$.  This result
+states for the aggregated random variables both mean and variance
+increase linearly under summation.  For processes that exhibit slowly
+decaying variance the result is that their variance grows faster than
+linearly.  For a full example see \S~\ref{appendix:example1}.
+
+Therefore to see the behaviour in equation~\ref{models:eq3} one or
+both of the above conditions must fail to hold.  For any renewal
+process the random variables will always be identically distributed
+leaving either the distribution to have infinite variance and/or there
+to be some dependence between the variables.
+
+\section{Fixed interval counting}
+
+Let
+\[ T = \{T(k) : k \geq 0 \; k \in {\mathbb N} \} \]
+where $T(k)$ is the time of the $k^{th}$ event, conditioned on
+\[ T(0) = 0 \]
+Let
+\[ \begin{array}{c}
+R_k = T(k) - T(k-1) \\
+R_k > 0 \; \;  k \geq 1 \\
+\end{array}
+\]
+Then this is a renewal process if and only if there exists a
+distribution function $F_R(x)$ such that
+
+\[ P(R_k \leq x) = P(R \leq x) = F_R(x) \; \forall x > 0 \mbox{ and } \forall k\geq 1 \]
+and the $R_k$ are mutually independent.  That is, inter-event times
+are independent and identically distributed.
+
+Let
+\[{\mathcal I} = \{i_k : i_k = [ks,(k+1)s) , k \in {\mathbb N} \cup \{0\}\} \]
+be a set of non overlapping intervals of size $s$ such that $\cup
+{\mathcal I} = {\mathbb R}^+$.
+
+Let
+\[{\mathcal C} = \{C_k : C_k = \{ j : T(j) \in i_k \} \} \]
+so that
+\[
+c_k = |C_k|, k \in \{ 0,1,2,\ldots \}
+\]
+be the number of events in the interval $i_k$, that is $(ks, (k+1)s]$.
+
+Then
+\[
+P(c_i = k, c_{i-1} = j) = P(c_i = k) \cdot P(c_{i-1} = j), i > 0
+\]
+is true $\forall s$ if and only if $T$ is a Poisson process.  That is for
+general renewal processes $c_i, c_{i-1}$ are not independent.
+
+For example, if we have a renewal process with inter-renewal events
+distributed uniformly with mean 0.75, and a counting interval of
+length 1.0 then for any interval $c_k$ where the previous interval
+$c_{k-1}$ had no events must have at least 1 event in it.
+
+This is because a uniform inter-renewal distribution with mean 0.75
+has a maximum inter-renewal time of 1.5.  Since the previous interval
+did not have any events ($c_{k-1} = 0$) in it then 1.0 of the maximum
+of 1.5 has already occurred.  This means that event must occur within
+the current interval ($c_k > 0$).  Hence the number of events that can
+occur in the current interval is dependent on the number that occurred
+in the previous interval, so the $c_{k-1}$ and $c_k$ are no
+independent.

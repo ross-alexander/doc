@@ -1,0 +1,130 @@
+\begin{thebibliography}{10}
+
+\bibitem{Bell:1}
+Walter~Willinger Ashok~Erramilli, James~Gordon.
+\newblock Applications of fractals in engineering for realistic traffic
+  processes.
+\newblock {\em International Tele-traffic Conference}, 14:35 -- 44, 1994.
+
+\bibitem{SDSC:report}
+Hans-Werner Braun, Bilal Chinoy, Kimberly~C Claffy, and George~C Polyzos.
+\newblock Analysis and modeling of wide-area networks: Annual status report.
+\newblock Technical report, Applied Network Research, San Diago Supercomputer
+  Center, February 1993.
+
+\bibitem{Novell:IPX}
+Novell Corp., editor.
+\newblock {\em NetWare Application Notes}, pages 32 -- 50.
+\newblock Novell Corp., September 1990.
+
+\bibitem{Digital:Ethernet}
+Xerox~Corp. Digital~Corp., Intel~Corp.
+\newblock The {Ethernet}: A local area network data link layer and physical
+  layer specifications, version 2.0.
+\newblock Technical report, Digital Corp., Intel Corp., Xerox Corp., February
+  1982.
+
+\bibitem{Bell:5}
+Ashok Erramilli and Walter Willinger.
+\newblock Fractal properties in packet traffic measurements.
+\newblock Unpublished draft, 1993.
+
+\bibitem{grimmett}
+D~R~Stirzaker G~R~Grimmett.
+\newblock {\em Probability and Random Processes}.
+\newblock Oxford Science publications, 1982.
+
+\bibitem{AppleTalk:Apple}
+Alan B~Oppenheimer Gursharan S~Sidhu, Richard F~Andrews.
+\newblock {\em Inside AppleTalk}.
+\newblock Addison Wesley, 1989.
+
+\bibitem{Bell:3}
+W~E Leland, M~S Taqqu, W~Willinger, and D~V Wilson.
+\newblock On the self-similar nature of ethernet traffic.
+\newblock {\em {SIGCOMM} Symposium on communications Architectures Protocols},
+  pages 183 -- 193, September 1993.
+
+\bibitem{Bell:2}
+W~E Leland, Walter Willinger, M~S Taqqu, and D~V Wilson.
+\newblock Statistical analysis and stochastic modeling of self-similar data
+  traffic.
+\newblock {\em International Tele-traffic Conference}, 14:319 -- 328, 1994.
+
+\bibitem{Bell:4}
+W~E Leland, Walter Willinger, Murad~S Taqqu, and Daniel~V Wilson.
+\newblock Ethernet traffic is self-similar: Stochastic modeling of self-similar
+  data traffic.
+\newblock Unpublished draft, March 1993.
+
+\bibitem{HAP}
+Ying-Dar~Jason Lin, Tzi-Chieh Tsai, San-Chiao Huang, and Mario Gerla.
+\newblock {HAP}: A new model for packet arrivals.
+\newblock {\em {ACM SIGCOMM}}, pages 212 -- 223, 1993.
+
+\bibitem{Lowen:Fract}
+S~B Lowen.
+\newblock Fractal renewal processes.
+\newblock {\em Transactions on Information Theory}, 39(5):1669 -- 1671,
+  September 1993.
+
+\bibitem{IEEE:Mandelbrot}
+Benoit Mandelbrot.
+\newblock Self-similar error clusters in communications systems and the concept
+  of conditional stationarity.
+\newblock {\em IEEE Transactions on Communication Technology}, 13:71 -- 90,
+  March 1965.
+
+\bibitem{RFC:1305}
+D~Mills.
+\newblock {RFC} 1305: Network time protocol (version 3) specification,
+  implementation and analysis.
+\newblock Technical report, Internet Engineering Task Force, March 1992.
+
+\bibitem{IEEE:Ethernet}
+The~Institution of~Electrical and Electronic Engineers.
+\newblock Carrier sense multiple access with collision detection {(CSMA/CD)}
+  access method and physical layer specifications.
+\newblock Technical report, The Institution of Electrical and Electronic
+  Engineers, 1985.
+\newblock American National Standards Institute ANSI/IEEE Std. 802.3-1985.
+
+\bibitem{IEEE:Tokenring}
+The~Institution of~Electrical and Electronic Engineers.
+\newblock Token ring access method and physical layer specifications.
+\newblock Technical report, The Institution of Electrical and Electronic
+  Engineers, 1985.
+\newblock American National Standards Institute ANSI/IEEE Std. 802.5-1985.
+
+\bibitem{RFC:791}
+Jon Postel.
+\newblock {RFC} 791: The internet protocol ({IP}).
+\newblock Technical report, Internet Engineering Task Force, September 1981.
+
+\bibitem{RFC:1055}
+J~Romkey.
+\newblock {RFC} 1055: Nonstandard for transmission of {IP} datagrams over
+  serial lines ({SLIP}).
+\newblock Technical report, Internet Engineering Task Force, June 1988.
+
+\bibitem{Lowen:2}
+M~C~Teich S~B~Lowen.
+\newblock Fractal renewal processes generate 1/$f$ noise.
+\newblock {\em Physical Review E}, 47(2), February 1993.
+
+\bibitem{Lowen:1}
+Malvin C~Teich S~B~Lowen.
+\newblock Doubly stochastic poisson point process driven by fractal shot noise.
+\newblock {\em Physical Review A}, 43(8), April 1991.
+
+\bibitem{taqqu}
+Gennady Samorodnitsky and Murad~S Taqqu.
+\newblock {\em Stable Non-{Gaussian} Random Processes}.
+\newblock Chapman \& Hall, 1994.
+
+\bibitem{RFC:1661}
+William Simpson.
+\newblock {RFC} 1661: The point-to-point protocol ({PPP}).
+\newblock Technical report, Internet Engineering Task Force, July 1994.
+
+\end{thebibliography}

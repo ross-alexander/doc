@@ -1,0 +1,7 @@
+for i in $*
+do
+  echo $i
+  mv $i tmp
+  sed 's/varience/variance/' < tmp > $i
+  rm tmp
+done

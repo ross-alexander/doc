@@ -1,0 +1,5 @@
+appletalk apt {network=ddp physical=ethernet link=lsap}
+internet ip {physical=ethernet network=ip}
+netware nov {physical=ethernet link=lsap network=dsap}
+digital dec {physical=ethernet network=lat network=lanbridge
+	     network=decremotecons network=declavc network=decphIVroute}

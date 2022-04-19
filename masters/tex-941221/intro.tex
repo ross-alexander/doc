@@ -1,0 +1,492 @@
+\chapter{Introduction}
+
+\section{Initial Requirements}
+
+\subsection{Network Prespective}
+
+The original intension of this thesis was to examine network traffic
+coming and going from the university campus.  The idea was try and get
+a measure of how saturated the link was and produce some numerical
+value to fit this.
+
+While it is simple to give a figure for the average utilisation over
+time this is not adequate.  Cleary if the link is heavily utilised,
+say over 60\%, then users will experience delays when send or
+receiving data.  The problem that even on lightly utilised links
+delays through conguestion can also occur.  This occurs because
+data communications traffic levels are not constant but fluctuate over
+time.
+
+These fluctuations can occur over very short periods of time giving
+rise to the concept of a {\em burst} of traffic.  These bursts of
+traffic can be of intensity more than five times that the average
+utilisation so that if a user is trying to send data and it co-incides
+with this burst the user will experience delays.  Traffic which
+exhibits these wild fluctuations is known as {\em bursty} traffic.
+
+The question then arises as to cope with these bursts.  If a network
+provider sells capacity to a user based on response time then they
+need to know how much spare capacity they need to keep delay times
+acceptable.  For users using doing interactive activity such as remote
+login over the link not only is delay extremely important but that the
+variability of those delays is kept to a minimum.
+
+To this end it is important to gain an insight into the behaviour of
+this burty traffic and try to measure its effect on overall network
+performance.
+
+\subsection{Statistical Perspective}
+
+The statistical examinition of communications traffic came about with
+the advent of the telephone and telephone exchanges.  Exchange
+operators wanted to know how many lines they needed to install so that
+on average a customer would not get though in say five in a hundred
+times.
+
+To do this statisticians used a branch of statistics and operations
+research known a {\em queuing theory} to predict the long term
+behaviour of arrivals, that is incoming calls, and how many lines
+would be required so that only 5\% would not get through.
+
+Queuing theory does provide consistent solutions for telephone
+networks.  When computer and data communication became popular and
+more widespread people applied queuing theory in an attempt to get
+similar results.
+
+The statistical question asked is does queuing theory give accurate
+results and if not why not.  If queuing theory does not give
+consistent results then an examination of the model with underlies
+queuing theory needs to be examined in detail.
+
+This involves looking at the distribution of events arriving into the
+queuing system and the distribution of them being serviced.  With a
+simple model which states that events are arrivals of messages and
+these messages are limited in length with their service time directly
+proportional to their length.  This assumption is not inconsistent
+with real world computer networks and allows us to focus our attention
+on the arrival patterns of these messages.
+
+To this end we decided to take experimental measurements of real
+computer networks and try and fit a model to them.  The aim was to
+produce a theoretical model which could be used to produce classical
+results from queuing theory which were consistent with real traffic
+behaviour.
+
+\section{Switched Networks}
+
+Packet switched networks, and computer networks in general, have
+become an intrinsic part of the computer industry.  With the fall in
+their cost and the increase in user-friendly software it is now
+possible for people to connect several computers together to form a
+network with ease.
+
+Computer networks come in all shapes and sizes and there are a
+multitude of methods for connecting two or more computers together.
+Each individual network is different, depending on its topology, the
+transmission technology and the software running on it.  To fully
+understand a network it is necessary to know about each element.
+
+To gain the most from an investment and to plan for the future it is
+necessary to look at the characteristics and behaviour of these
+networks.  The end result is to ensure that end users get the
+performance and reliability they expect, and continue to do so.
+
+\subsection{Packet Switching verses Circuit Switching}
+
+\subsubsection{Circuit Switching}
+
+Packet switched networks are one of two types of communication
+networks.  The other is circuit switched networks.  Circuit switched
+networks are the older of the two as they are the basis of the
+telephone system.
+
+Originally telephone networks where based around a central office
+where wires from each telephone terminated.  When a call was placed
+the operator would physically connect the two wires together.  This
+would form an electrical {\em circuit} which would remain intact
+throughout the duration of the call.  When the call ended the operator
+would disconnect the two wires.  It is not clear where the term
+switching came from but it has applied to the operation of connecting
+two parties together at a central office from the earliest times of
+telephony.
+
+Today the technology is very different but the concepts of circuit
+switching remain the same, that is a fixed path between the end
+parties is set up at the start of a connection, remains intact
+throughout the during of the call, and is torn down only after the
+call has ended.
+
+One important concept with circuit switched systems is the one of
+having a fixed resource.  Whether you talk or not when using the
+telephone does not change the amount of resources being used.  Exactly
+one circuit is being used regardless of how much information there is
+at any given time, that is the resource usage does not shrink or
+expand once the circuit has been set up.
+
+\subsubsection{Packet Switching}
+
+Packet switching differs from circuit switching in that whereas a
+circuit switching system treats a connection as a continuous stream
+packet switching treats everything as discrete, size limited blocks.
+Each block is known as a {\em packet}.  A common analogy is the idea
+of a postcard in a postal network.  To send a long message several
+postcards have to be written and sent.  Each postcard is treated
+independently and they may not arrive in the same order as they are
+sent or follow the same route in getting to their destination.
+
+\subsubsection{Hybrid Systems}
+
+A common hybrid system between circuit switched and packet switched
+networks is based around the concept of a {\em virtual circuit}.  A
+virtual circuit behaves like a standard circuit in that for a
+connection between two parties are circuit is formed, remains fixed
+throughout the duration of the connection, and is torn down once of
+the connection has ended.
+
+Virtual circuits differ in that rather than having a fixed resource
+throughout the duration of the connection to support a continuous
+stream of date the input is broken up into packets.  Each packet
+follows a set route decided upon at the creation of the circuit, but
+if there is no input to be transmitted then no packets are sent.  This
+way resources only need to be used when something is to be
+transmitted, the resources growing or shrinking as needed.
+
+The idea is to keep the simplicity of a fixed circuit while trying to
+maximise the utilisation of limited resources.  While it looks like a
+circuit it suffers from the problems of a packet switched system, that
+is conguestion.  With proper circuit switching if inadquate resources
+are available a connection will fail when the system attempts to open
+it (as in a busy signal or trunk full signal exeperienced with the
+telephone system) but in packet switching resources are only used when
+a packet is sent so having inadequate resources is only discovered
+when a packet is actually sent.  A supplier may allocate more virutal
+circuits then the number of actual physical ones, assuming not every
+connected party will want to send something at any given point in
+time.  If too many parties do try to send something at the same time
+then the network's resources will be execeeded causing some packets to
+be dropped (the packet is ignored by the system and ceases to exist)
+or delayed.
+
+Virtual circuit based networks are called {\em connection orientated
+packet switched networks}.  In contrast packet switched networks where
+each packet is completely self contained are called {\em
+connectionless packet switched networks} or just {\em connectionless
+networks}.
+
+\subsubsection{Datagram Networks}
+
+Connectionless packet switched networks are often called {\em
+datagram} networks.  Because each packet is self contained they are
+often thought of as individual blocks of data travelling through the
+network and are hence called datagrams.  Most datagram networks follow
+the {\em hop-by-hop} paradigm, that is each intermediate system
+redirects datagrams without respect to the datagram's previous travels
+or its further travels.  This implies datagrams do not keep a history
+of their travels but rely of the co-operation and co-ordination of
+intermediate systems to relay it to its destination.
+
+\section{Network Protocols}
+
+A {\em protocol} is a set of rules on how to behave given a set of
+circumstances.  Protocols generally come grouped together as a {\em
+protocol family} and are normally arraged in a semi hierarchical
+fashion, with many protocols relying on others to do work for them
+while being relied on by other protocols.  This pseudo hierarchy for a
+given protocol family is called a {\em protocol stack}.
+
+Throughout the history of computing there have been many network
+protocols, most of them proprietary to specific systems.  As market
+forces drive networks towards greater connectivity many of these
+protocols have fallen by the wayside, leaving a handful of system
+specific protocols and two major `open' systems.  Common network
+protocols include SNA (Systems Network Architecture) from IBM, DECnet
+from Digital Equipment Corporation, IPX (Netware) from Novell and
+AppleTalk from Apple Computer.  The two major open systems protocols
+are TCP/IP (Transmission Control Protocol / Internet Protocol) and OSI
+(Open System Interconnection).
+
+\subsection{Internet Protocol}
+
+\subsubsection{History and Comments}
+
+The Internet Protocol, commonly known as IP, developed from ARPANET
+(Advanced Research Project Agency NETwork), one of the ealiest packet
+switching networks developed.  ARPANET was funded by the United States
+Department of Defense, who required a computer network able to survive a
+limited nuclear attack.  For this reason emphasis was placed on
+distributing decision making (as any centralised system would be an
+obvious target) and reliability in extreme circumstances.
+
+ARPANET no longer exists but has been replaced by {\em The Internet},
+are world wide network of networks, all using IP as their base
+technology.  IP is a datagram protocol and is usable over a very wide
+range of transmission technologies.
+
+\subsubsection{Deployment within the University}
+
+TCP/IP is deployed throughout the university and is available to all
+departments.  Currently the university has a class B address which is
+split up into 256 class C addresses.
+
+\subsection{AppleTalk}
+
+\subsubsection{History and Comments}
+
+{\em AppleTalk} is the network protocol suite developed by Apple
+Computer Inc. when it released the Macintosh.  It was developed
+specifically for small local area networks.  Originally it only ran
+over {\em LocalTalk}, a bus topology physical network.  LocalTalk has
+a very low bandwidth by todays standards but since it didn't require
+any extra hardware all Macintoshes came with it built in.  In later
+versions {\em EtherTalk} was added.  This enabled the AppleTalk
+protocols to run over standard Ethernet.
+
+It is mainly used for connecting Macintoshes to file servers and
+printers.  Over small networks (up to the size of a campus) network
+the protocol runs without difficulty.  It has a distributed directory
+service which makes using it simple, but limitations in that protocol
+now limit how large the network can grow.
+
+AppleTalk cannot easily be used over wide area networks.  This is
+mainly to do with limitations in its ability to address physical
+entities on the network.  Also, the directory service breaks down over
+slower links.
+
+AppleTalk splits the network up into logical {\em zones}, where one or
+more physical segment belongs to a zone.  Zones are not used in packet
+routing but are for human use only, dividing the network up logically
+to simplify directory lookups, that is AppleTalk has a two level
+directory consisting of zones and logical entities, which belong to
+exactly one zone.  Because zones cannot belong to other zones
+connecting to seperate AppleTalk networks, say two universities, is
+unfeasible without extreme care.
+
+\subsubsection{Deployment within the University}
+
+AppleTalk is also widely deployed throughout the campus.  The majority
+of the network is over Ethernet with some outlying sections using
+LocalTalk.
+
+\subsection{IPX}
+
+\subsubsection{History}
+
+IPX, or {\em Internet Packet eXchange} is the network layer protocol
+used by {\em Netware}.  Netware is a product from {\em Novell Inc}
+which provides file server and remote printing services.  A Netware
+network is a collection of file and printer servers connected together
+using IPX.  Client machines, running MS-DOS or Windows, connect to a
+server, and software on the client machine makes the remote file
+systems behave as if they were connected locally.
+
+IPX itself is a very simple protocol with a two level addressing
+system.  Physical segments are each assigned an address, and machines
+on the physical segments are addressed using their hardware address.
+This simplicity reduces the amount of computing required to send each
+packet, but limits the flexibility of the protocol.  IPX runs almost
+exclusively over Ethernet only.
+
+\subsubsection{Deployment within the University}
+
+IPX can go over any Ethernet segment provided it is able to be routed
+onto it.  Many departments have no enabled IPX routing because of the
+extra administrative work involved.
+
+Netware also places a non trivial load on the network because every
+two minutes (or however long the administrator sets it) the router
+broadcasts information about every Netware service available.  When
+the number of file servers exceeds twenty this information becomes
+large in size.  Currently the information is about 500 kilobytes in
+size.  On busy networks such as student labs, this is unwelcome extra
+traffic.
+
+\section{Physical Transmission Media}
+
+While the number of common network protocols is less than ten the
+number of ways of transmitting digital information is at least five
+times this.  Each method differs in behaviour and hence alters the
+characteristics of traffic using it.  Fortunately most methods fall
+into broadly defined groups, with each member of the group exhibiting
+similar behaviour.
+
+\subsection{Analog and Digital Transmission Technologies}
+
+All data transmitted is electromagnetic energy at some stage (whether
+it be light, radio or signals along copper wire) and as such are
+analog in nature.  All modern data communications is digital in nature
+so transmission requires signals to be encoding.  The term {\em
+bandwidth} originally came from how large a slice of the radio
+spectrum a transmitter could use.  This in turn governed how much
+information could be sent in a given period of time.  The modern usage
+still measures the rate at which data can be sent but unless specified
+should not be seen as relating to the underlying analog technology.
+
+\subsection{Point to Point Connections}
+
+Point to point connections are the easiest to visualise.  {\em
+Transceivers} (devices which both transmit and receive data) are
+placed at either end of a cable.  If both transceivers can send
+simultaneously then the media is said to support {\em duplex}
+transmission otherwise the media is said to be {\em half duplex}.
+
+Point to point connections have two major charactistics.  The first is
+bandwidth, measured in bits per second (bps) and in magitudes of
+multiples of one thousand (this is different from computers where
+orders increase in multiples of $2^{10}$).  The other is {\em
+latency}, which is a measure of delay between when data is sent and
+subsequently received.  This is normally measured in the orders of
+seconds (for example, milliseconds or microseconds).
+
+\subsubsection{Framing}
+
+Data is not sent in a raw stream but is encapulated into discrete,
+size limited packets, known as {\em frames}.  Framing the data avoids
+excessive error propogation as well as providing information for
+clock synchonisation.  Frames may also contain information about
+addressing data to a particular transceiver and error correction.
+
+Frame sizes vary from as little as 53 {\em octets} (an octet is eight
+bits,  the term byte is normally used with respect to computers) to
+over 8 Kbytes (8192 octets).  It is important for protocols using a
+particular transmission medium to match their packet sizes to that of
+the transmission frames.
+
+\subsubsection{Serial and Parallel Connections}
+
+Modern computers normally store data in blocks of 32 or 64 bits.  When
+transmitting these blocks inside the computer they are sent in {\em
+parallel}, that is to say 32 or 64 seperate connections are used, with
+each bit being sent simultaneously.  This means that large amounts of
+information can be sent rapidly.
+
+When sending data between two computers physical wires are required
+making very wide parallel cables extremely expensive.  While eight bit
+wide parallel cables are common they only ever extend a distance of
+metres.  Wider cables are now being used to connect computers to high
+speed peripherals but only up to a distance of one or two metres.
+
+Over longer distances these blocks of data are sent bit by bit in
+sequence.  This is known as {\em serial} transmission and only
+requires two copper wires or one optical fibre per direction.  Over
+any significant distance it is cheaper to make serial transmission
+faster than to make parallel cables wider.
+
+\subsection{Contention and Bandwidth Allocation}
+
+When two or more parties attempt to simultaneously use a limited
+resource then one or more must miss out.  This fighting is called {\em
+contention} and the process for deciding who finally gets the resource
+is called {\em contention resolution}.  Contention occurs in many
+places in computing and specifically in data transmission it is
+associated with transmitters wanting to send data and limited
+bandwidth.
+
+Contention can be resolved in a number of ways, each having advantages
+and disadvantages.
+
+\begin{itemize}
+
+\item Stations are given set priorities.  If a station with a higher
+priority wants to send then any sender which is lower must stop.  This
+is called a {\em priority based} system.
+
+\item A centralised station given the right to sent to subservient or
+slave stations.  This is called {\em polling}.
+
+\item The right to send is passed from station to station in an
+orderly fashion.  This method is called {\em token passing}.
+
+\item Two or more stations attempt to send and collide.  They then
+fight among themselves until there is a winner who then gets the right
+to send.  These are called {\em contention} networks.
+
+\item Data is transmitted is buckets and stations wanting to send must
+let a certain number of empty buckets pass before they can use one.
+This broadly falls into the category of {\em distributed queue}
+networks.
+
+\end{itemize}
+
+\subsection{Broadcast Media}
+
+Radio, television and sattelite are all broadcast media.  All
+receiving stations get an identical signal from the sender.  This can
+in principle be extended to include all receivers connected to a
+single piece of wire.
+
+This idea can be taken further and we may define a broadcast network
+as a network that any station can send a single packet to every other
+connected station, which will receive an identical copy of that
+packet.  This definition includes all physical topologies where
+signals are propogated to every connected station.  Hence we can
+include such networks as token ring and dual bus networks.
+
+Broadcasting is very useful at sending information to every station
+and is very efficient provided the transmission technology is based on
+network wide signal propogation, where broadcat essentially comes for
+free.  When the physical technology does not allow for broadcasting it
+must be simulated.  This means every station wanting to receive
+broadcasts must have the message individually sent to them.  For any
+network of non trivial size this can become hugely expensive in
+bandwidth.
+
+\subsection{Common Transmission Technologies}
+
+Below is a quick overview of common transmission technologies.  Full
+details of some of them will be given in later chapters.
+
+\subsubsection{Ethernet}
+
+Ethernet is a contension based broadcast network designed to work over
+short distances (tens of metres).  It is the most widely deployed
+transmission technology in computer networking with equipment cheaply
+and widely available.  Its relative ease of installation and
+maintainence has lead to it becoming the baseline technology within
+the micro computer industry.  It is also known as IEEE 802.3, which is
+the standard which currently defines it.  The raw transmission speed is
+normally 10 Mbps but work is proceeding on defining a 100 Mbps
+standard.
+
+\subsubsection{Token Ring}
+
+Token ring, specifically the standard IEEE 802.5, is a token passing
+broadcast network.  It is not as common as ethernet and its normally
+associated with IBM equipment.  Token ring normally has a raw data
+rate of either 1, 4 or 16 Mbps.  Note it is unwise to make a direct
+comparison between these rates and that of Ethernet as raw
+transmission rate is a poor indicator of true throughput.
+
+\subsubsection{FDDI}
+
+FDDI, or Fibre Distributed Data Interface, is another token passing
+network.  It is very similar to IEEE 802.5 except it runs on optical
+fibre rather than copper wire.  Raw transmission rate (as seen by a
+connected station) is 100 Mbps.
+
+\subsubsection{PPP and SLIP}
+
+While not physical technologies they define how data is to be sent
+along serial connections.  SLIP (Serial Line Internet Protocol) is a
+defacto standard used because of its simplicity and wide
+availability.  PLIP (Parallel Line Internet Protocol) is an analogous
+standard for parallel connections but is fairly uncommon.  PPP (Point
+to Point Protocol) is a full and complete standard for transmitting
+packets over point to point connections.
+
+\section{The University Campus Network}
+
+The campus network is a collection of physical networks connected
+together via routers.  A majority of the physical networks are
+Ethernet, either running of copper or point to point Ethernet
+connections running over fibre.
+
+\begin{figure}
+\leavevmode
+\epsffile{uni-network-map.eps}
+\caption{Topological map of the University of Auckland Network}
+\label{map:uni}
+\end{figure}
+
+\subsection{Subnet 1}
+
+\subsection{Gateway Network}

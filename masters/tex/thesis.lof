@@ -1,0 +1,84 @@
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces OSI and TCP/IP Protocols Stacks}}{11}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Ethernet II and IEEE 802.3 Frames}}{16}{}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Topological map of the University of Auckland Network}}{18}{}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Topological map of part of the Computer Centre Network}}{19}{}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Topological map of the University Gateway Network}}{19}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Format of the trace file}}{22}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Flow of polling loop}}{24}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Flow for first packet driver call}}{25}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Flow for second packet driver call}}{25}{}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Output Rate versus Packet Size}}{27}{}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces 1 / Rate versus Packet Size}}{28}{}%
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sample output of {\em arrival}}}{42}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Computer Centre network with time interval 1 second}}{45}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Computer Centre network with time interval 10 milliseconds}}{46}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Computer Centre network autocorrelation with time interval 1 second}}{46}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Computer Centre network autocorrelation with time interval 10 milliseconds}}{47}{}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Computer Centre network histogram with time interval 1 second}}{47}{}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Statistics network with time interval 1 second}}{48}{}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Statistics network with time interval 10 milliseconds}}{48}{}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Statistics network autocorrelation with time interval 1 second}}{49}{}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Statistics network autocorrelation with time interval 10 milliseconds}}{49}{}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Statistics network histogram with time interval 1 second}}{50}{}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Gateway network with time interval 1 second}}{50}{}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Gateway network with time interval 10 millisecond}}{51}{}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Gateway network autocorrelation with time interval 1 second}}{51}{}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Gateway network autocorrelation with time interval 10 milliseconds}}{52}{}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Gateway network histogram with time interval 1 second}}{52}{}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Commerce Postgraduate Lab with time interval 1 second}}{53}{}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Commerce Postgraduate Lab with time interval 10 milliseconds}}{54}{}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Commerce Postgraduate Lab autocorrelation with time interval 1 second}}{54}{}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Commerce Postgraduate Lab autocorrelation with time interval 10 milliseconds}}{55}{}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Commerce Postgraduate histogram Lab with time interval 1 second}}{55}{}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces IP traffic on Computer Centre network with time interval 1 second}}{56}{}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Histogram of IP traffic on Computer Centre network with time interval 1 second}}{56}{}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces AppleTalk traffic on Computer Centre network with time interval 1 second}}{57}{}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Histogram of AppleTalk traffic on Computer Centre network with time interval 1 second}}{57}{}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces IPX traffic on Computer Centre network with time interval 1 second}}{58}{}%
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Histogram of IPX traffic on Computer Centre network with time interval 1 second}}{58}{}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Autocorrelation of IPX traffic on Computer Centre network with time interval 1 second}}{59}{}%
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Slowly decaying variance plot of the Computer Centre network}}{60}{}%
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Slowly decaying variance plot of the Gateway network}}{61}{}%
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Slowly decaying variance plot of the Statistics network}}{61}{}%
+\contentsline {figure}{\numberline {4.32}{\ignorespaces Slowly decaying variance plot of the Commerce Postgraduate network}}{62}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Poisson Process Simulation with Exponential Distribution}}{64}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Histogram of a Poisson Process Simulation}}{65}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Slowly decaying variance plot of a Poisson Process Simulation}}{65}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Uniform Distribution Renewal Process Simulation}}{66}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Histogram of Uniform Distribution Renewal Process Simulation}}{66}{}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Slowly decaying variance plot of Uniform Distribution Renewal Process Simulation}}{67}{}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Modulated Renewal Process Simulation}}{68}{}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Histogram of Modulated Renewal Process Simulation}}{68}{}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Autocorrelation of Modulated Renewal Process Simulation}}{69}{}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Slowly decaying variance plot of Modulated Renewal Process Simulation}}{69}{}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Pareto Distributed Renewal Process Simulation}}{71}{}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Histogram of Pareto Distributed Renewal Process Simulation}}{72}{}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Autocorrelation of Pareto Distributed Renewal Process Simulation}}{72}{}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Slowly decaying variance plot of Pareto Distributed Renewal Process Simulation}}{73}{}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces $t_2-distribution$ Distributed Renewal Poisson Simulation}}{73}{}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Autocorrelation of $t_2-distribution$ Distributed Renewal Process Simulation}}{74}{}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Slowly decaying variance plot of $t_2-distribution$ Distributed Renewal Process Simulation}}{74}{}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Cauchy Distributed Renewal Poisson Simulation}}{75}{}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Autocorrelation of Cauchy Distributed Renewal Process Simulation}}{75}{}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Slowly decaying variance plot of Cauchy Distributed Renewal Process Simulation}}{76}{}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Single $t_2-distribution$ Distributed Renewal Process Simulation}}{77}{}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Histogram of Single $t_2-distribution$ Distributed Renewal Process Simulation}}{78}{}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Autocorrelation of Single $t_2-distribution$ Distributed Renewal Process Simulation}}{78}{}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Slowly decaying variance plot of Single $t_2-distribution$ Distributed Renewal Process Simulation}}{79}{}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces 10 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{79}{}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Histogram of 10 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{80}{}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Autocorrelation of 10 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{80}{}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Slowly decaying variance plot of 10 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{81}{}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces 100 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{81}{}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Histogram of 100 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{82}{}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Autocorrelation of 100 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{82}{}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Slowly decaying variance plot of 100 Superimposed $t_2-distribution$ Distributed Renewal Process Simulation}}{83}{}%
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}

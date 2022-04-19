@@ -1,0 +1,306 @@
+\chapter{Stochastic Models of Packet Arrivals}
+
+\section{Poisson Process}
+
+\subsection{Definition}
+
+A Poisson process is a counting process
+\[ N = \{ N(t) : t \geq 0 \} \]
+taking values from
+\[ S = \{ 0,1,2,3, \ldots \} \]
+conditioned on
+\[N(0) = 0\]
+and
+\[ \mbox{if } s < t \mbox{ then } N(s) \leq N(t) \; \forall s,t \in {\Bbb R} \]
+Defined by
+\[
+\begin{array}{c}
+P(N(t+h) = n + m | N(t) = n) = \\
+P(N(t+h) - N(t) = m) = \\
+\left\{
+\begin{array}{rl}
+1 - \lambda h + o(h) & m = 0 \\
+\lambda h + o(h) & m = 1 \\
+o(h) & m > 1 \\
+\end{array}
+\right. \\
+\end{array}
+\]
+
+\subsection{Remarks}
+
+The Poisson Process is one of the most common and simple processes in
+statistics and operations research.  Poisson processes occur in both
+time and space and are characterised by a single parameter $\lambda$.
+This parameter $\lambda$ is a measure of the rate or intensity of the
+process.
+
+Poisson processes in time occur along a real valued time line,
+normally ${\Bbb R}^+$.  They create single events along the line as they
+advance towards $+\infty$.
+
+The above definition has the following consequences.
+
+\begin{itemize}
+\item	No event may occur at exactly time zero.
+
+\item	The number of events in two non-overlapping time periods are
+independent. For example knowing the number of events in the period
+$(0, t]$ will not give you any extra information about the number of
+events in the period $(t, 2t]$, that is $N(t+s) - N(t) \sim N(s) \;
+\forall s,t \in {\Bbb R}^+$.
+
+\item	The number of events in the period $(0, t]$ is distributed
+as a Poisson$(\lambda t)$ random varible, that is $P(N(t) = x) = 
+\frac{e^{-\lambda t}{\lambda t}^x}{x!}$.
+\end{itemize}
+
+It can easily be shown that these give us the following.
+
+\begin{itemize}
+\item	The time between any two successive events is distributed
+$\mbox{Exponential}(\lambda)$, that is $PT_i - T_{i-1} \geq t) =
+e^{-\lambda t}$.
+
+\end{itemize}
+
+\section{Renewal Processes}
+
+A renewal process can be seen as a generalisation of a Poisson
+process.  It is important to note that the distribution of the times
+betwen renewal events are indenpendent and identically distributed,
+for example the Poisson process is a renewal process because of the
+inter-arrival time is an indenpendent and identically distributed
+exponential distribution.  Renewal processes periodically restart
+themselves at the renewal points, forgetting their previous history.
+The behaviour between renewal events may be complex.  It also may be
+independent of the renewal behaviour.
+
+Often the renewal event is a marked event within a larger process.  An
+example is the simple randow walk where the return to the origin or
+return to zero can be used.  This is to maintain consistancy with the
+concept when a renewal occurs it is as if the process was starting
+from time zero.
+
+\subsection{Simple Renewal Processes}
+
+\subsection{Definition}
+
+A renewal process is defined by
+\[ T = \{T(k) : k \geq 0 \; k \in {\Bbb N} \} \]
+where $T(k)$ is the time of the $k^{th}$ event, conditioned on
+\[ T(0) = 0 \]
+Let
+\[ \begin{array}{c}
+R_k = T(k) - T(k-1) \\
+R_k > 0 \; \; \forall k \\
+\end{array}
+\]
+and there exists a distribution function $F_R(x)$ such that
+\[ P(R_k \leq x) = P(R \leq x) = F_R(x) \; \forall x \mbox{ and } \forall k \]
+
+\subsection{Remarks}
+
+In simple renewal processes the process restarts every time an event
+occurs.  This is the simpleist type of renewal process and is very
+similar to the Poisson process.  The main difference is that the
+Poisson process relies on events having an exponentially distributed
+interarrival time.  In a renewal process any probability distribution
+may be used for the time until the next renewal.
+
+Because the time until the next renewal has to be non negative
+many common distributions such as the normal or Cauchy have to be
+modefied.  This can be done by folding the negative half of the
+density onto the positive real line.  The simpleist method is sampling
+from the distribution and then taking the absolute value.
+
+\subsection{Processes with Internal Structure}
+
+Many processes are more complex then single events.  Between renewals
+the process may produce other events.  A birth and death process is a
+simple counting process where events arrive and depart from the system
+with independent, identically distributed exponential distributions.
+We can make the renewal event the event of the system becoming empty.
+The events of an empty system becomes our renewal process with the
+birth and death process becoming hidden.
+
+\subsection{Processes with Infinite Moments}
+
+One important area of interest are processes which have inter-renewal
+times with infinite moments.  We are mainly interested in those
+distributions with infinite variance such as Cauchy, $\mbox{T}_2$ and
+Pareto.
+
+The research into infinite veriance distribution renewal processes has
+lead to the idea of {\em fractal}, or {\em self similar} renewal
+processes.  The basis of these names is to do with similar behaviour
+over different time spans.  Poisson processes become smoother as you
+observe their average behaviour over longer time intervals.  Pure
+fractal processes do not smooth so that they are invariant with
+respect to the time period over which you observe them.
+
+Such behaviour has serious consequences when applied to traffic models
+because it indicates that you will always get bursts of traffic at
+every time scale and you can never allocate enough queue resources to
+cope with every situation.
+
+\section{Modulated Processes}
+
+Modulated processes are multistate stochastic processes.  They consist
+of individual, mutually independent states and a set of stochastic
+transitions which govern the process' change from one state to
+another.
+
+The process is in exact one of the states at any given time.  While it
+in is that state acts in accordance to the behaviour that state
+specifies.  The process may change state at any time and must enter
+another state straight away.  The rules governing how long the process
+stays in a state and which states can follow it may be state dependent
+or be controlled by an underlying global process.
+
+\subsection{Markov Modulated Poisson Processes}
+
+\subsubsection{Definition}
+
+Let
+
+\[ {\cal S} = \{s : s = 0,1,2,3,\ldots, N \} \]
+
+be a set of states with associated arrival rates $\lambda_s$, where
+$\lambda_s$ is the arrival rate of underlying Poisson process while in
+state $s$.  Let
+
+\[ N = \{ N(t) : t \geq 0 \} \]
+
+be the underlying Poisson process of rate $\lambda_{S(t)}$.  Let
+
+\[
+S = \{ S(t) : S(t) = s \in {\cal S} \; \; \forall t \geq 0 \; \; t \in {\Bbb R} \}
+\]
+
+be the state of the process at time $t$.  Let
+
+\[
+P(S(t+h) = k, S(t + \delta) = k \;\;0 \leq \delta < h | S(t) = k) =
+e^{\mu_k h})
+\]
+where $\mu_k \in {\Bbb R}^+$ are state lifetime parameters, with
+\[
+P(S(t+h) = k | S(t) = j, h = \mbox{inf}\{S(t + \delta) \neq j \; \delta >
+0\}) = M[j,k] \; \forall j,k \in {\cal S}
+\]
+where
+\[
+M = M[m,n], \; m = n = |{\cal S}|
+\]
+is a stochastic matrix such that
+\[
+\sum^n M[m,n] = 1 \; \; \forall m \in {\cal S}
+\]
+
+\subsubsection{Remarks}
+
+Markov modulated Poisson processes are the simpleist of the modulated
+processes.  Each state defines the arrival rate of an underlying
+Markov process.
+
+The amount of time the process stays in a state is exponentially
+distributed with a stochastic transition matrix governing the next
+state entered.
+
+Markov modulated Poisson processes are often used to generate the
+arrivals for standard queuing models.  This is so that more
+variability is introduced into the model and to add extra realism
+rather than having a constant arrival rate.
+
+\subsection{Generalised Modulated Processes}
+
+\subsubsection{Definition}
+
+Let
+
+\[ {\cal S} = \{s : s = 0,1,2,3,\ldots, N \} \]
+
+be a set of states with associated distribution functions
+
+\[ L_s : (0, +\infty) \rightarrow [0,1] \; s \in {\cal S} \]
+
+Let
+
+\[
+S = \{ S(t) : S(t) = s \in {\cal S} \; \; \forall t \geq 0 \; \; t \in {\Bbb R} \}
+\]
+
+be the state of the process at time $t$.  Let
+
+\[
+P(S(t+h) = k | S(t) = k, S(t + \delta) = k \; 0 \leq \delta < k) =
+L_{S(t)}(\delta)
+\]
+with
+\[
+P(S(t+h) = k | S(t) = j, h = \mbox{inf}\{S(t + \delta) = k \; \delta >
+0\}) = M[j,k] \; \forall j,k \in {\cal S}
+\]
+given
+\[
+M = M[m,n] \; \; m = n = |{\cal S}|
+\]
+be a stochastic matrix such that
+\[
+\sum^n M[m,n] = 1 \; \; \forall m \; \; m,n \in {\cal S}
+\]
+
+
+\subsubsection{Remarks}
+
+A generalised modulated process consists of a set of states and a
+stochastic transition matrix but unlike the Markov modulated Poisson
+process it is not limited to only using the exponential distribution
+as a lifetime distribution.
+
+Each state has two distributions associated with it.  One is a renewal
+process which generates events and the other is a lifetime
+distribution.  When the process enters the state a lifetime is
+generated from the lifetime distribution.  The process will remain in
+that state for the period of the lifetime.
+
+While in that state a renewal process will run generating events.  If
+an event is generated with would have occured beyond the lifetime of
+the state then it is ignored.  Any generalised renewal process is able
+to run provided it is independent of all other states.
+
+Once the lifetime of state has expired then the process choses a new
+state to enter based on the probililities in the transition matrix.
+The transition matrix is constant and independent of any activity
+within any of the states.
+
+\section{Aggregation Processes}
+
+\subsection{Definition}
+
+Let
+\[ {\cal C} = \{c:c = 0,1,2,3,\ldots, N\} \]
+be a set with associated general renewal processes
+\[R_c(t), \; c \in {\cal C} \]
+
+Let
+\[ T_c = \left< T_{c_1}, T_{c_2}, \ldots \right> \]
+ be the sequence of renewal times of the process $R_c$.
+
+Let 
+\[ T = \left<T_1, T_2, T_3, \ldots \right> = \bigcup^{\cal C}T_c \]
+ be an ordered sequence such that 
+\[ T_i \leq T_j \; \forall i,k \in {\Bbb N} \]
+
+\subsection{Remarks}
+
+With an aggregated process multiply renewal or modulated processes run
+concurrently with their result event traces merged together.  In most
+models each process is identical and all must be mutually independent.
+
+The idea behind aggregated processes is to capture complex behaviour
+using simply renewal processes with few parameters.  This would give
+us a much simplier model without loosing the complex nature of the
+real behaviour.
+

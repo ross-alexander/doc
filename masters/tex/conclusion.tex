@@ -1,0 +1,140 @@
+\chapter{Conclusion}
+\label{conclusion}
+
+\section{What was achieved}
+
+\subsection{Modest resources suffice}
+
+The results produced in the thesis were done using very limited
+hardware.  This shows that most people with modest hardware can
+reproduce these results for their own networks, widening the
+applicability and usefulness of research in this area.
+
+The software used to produce the results is also of modest
+proportions.  Apart from the graph plotting, which was done using
+GNUplot, all the analysis software was written by myself and is
+compilable on any standard C++ compiler under Unix.  This avoids the
+need for specialised statistical packages and helps with making the
+tools portable to other operating systems and platforms.
+
+While ``super computer'' processing power is not needed, the
+calculating of the slowly decaying variance and autocorrelation plots
+is computationally intensive and a minimum of a 80486 processor
+running at 66 MHz is recommended.
+
+A large amount of storage space is also important, especially if you
+want to keep the results even for a short time.  While it is possible
+to reproduce all the results from the trace file it is a tedious
+process.  Some of the simulations, most notably the superimposed
+processes, also produce very large (tens of megabytes) trace files.
+
+\subsection{Samples available for future reference}
+
+A set of traces were taken from around the University campus.  This
+provided us with a snapshot of the network in 1994, and allowed for
+comparisons between segments and protocols.
+
+This work could usefully be repeated in -- say -- 2 years, so as to
+observe whether the traffic behaviour changes as the network matures
+and traffic levels increase.
+
+\subsection{The Bellcore results are reproducible}
+
+By reproducing the work done at Bellcore \cite{Bell:1} this thesis has
+strengthened both pieces of work and given strong support to the
+conclusions they made.  The existence of fractal (self-similar)
+behaviour within Ethernet traffic has strong evidence to support it.
+This should cause a reassessment of many of the classic models currently
+used for congestion prediction in data networks.
+
+Both the mathematics in chapter \ref{models} and the simulations in
+chapter \ref{simulation} tie the theoretical models to the observed
+results.  The evidence clearly supports the notion that heavy-tailed
+renewal processes (renewal processes that have a heavy-tailed
+inter-renewal distribution) and superimposed processes produce
+self-similar (fractal) behaviour.
+
+\subsection{Producing self-similar behaviour through simulation is not difficult}
+
+The work in chapter \ref{simulation} shows that it is possible to
+produce packet traces with self-similar behaviour without difficult
+or large amounts of computer processing power.
+
+This gives us a tool to empirically examine self-similar traffic from
+various mathematical models.  It also enables people to gain an
+understanding of how heavy-tailed renewal processes behave (and
+insight into infinite moment distributions).  Such simulation could be
+used as an effective learning tool.
+
+\section{What was not achieved}
+
+\subsection{Bugs in the tracing program}
+
+There were several bugs in the tracing program.  They were not removed
+because of time restraints and because they did not affect the
+results.  As this program will be used in the future to continue to
+collect network traffic data around the University these bugs need to
+be removed.
+
+The tracing program is also very rudimentary in its user interface.
+If this program is to be distributed beyond the experimental stage and
+into public use then documentation is required and the user interface
+should be improved.
+
+\subsection{Unknown physical processes}
+
+While a strong theoretical model for the observed results now exists
+there is still little knowledge about how or why the self-similar
+behaviour occurs.  The merging of multiple hosts sending onto the
+network is one explanation but without some process corresponding to
+a heavy-tailed renewal process it is only a weak conjecture.
+
+This problem was encountered by the Bellcore researchers and they did
+not manage to give a conclusive answer.  Without the ability to relate
+the theoretical results back to known physical processes it will not
+be possible to influence the traffic flow behaviour.  This could be
+important when trying to deal with congestion at a source level.
+
+\section{Possible follow up work}
+
+\subsection{Effects of self-similar traffic on network controls}
+
+The existence of self-similar behaviour may require an examination of
+current congestion and flow control mechanisms.  As the amount of
+network traffic increases and data networks become even more common it
+is important that the problems with packet delivery and error
+correction using flow controls are addresses.
+
+With the emergence of very busty traffic as normal event on data
+networks, which such services as compressed video and music on demand,
+congestion control and timely delivery become more and more important.
+The current methods of determining buffering within packet switches
+and re-transmission ordering may have to examined in light of the
+advanced in the theoretical models of self-similar traffic.
+
+\subsection{Looking at network protocol behaviour}
+
+This involves looking at the behaviour bottom up by attempting to
+construct accurate models of how network protocols behave.  Work needs
+to be done on discovering where the self-similar behaviour originates.
+Network protocol behaviour is extremely complicated in real life
+because of the complex interaction within operating systems.  A simple
+model of a network and protocols which produces self-similar behaviour
+would be a valuable tool in understanding what is happening.
+
+Looking at each individual protocol was only done superficially in this
+thesis, leaving room for research into how the traffic of each protocol
+differs and the possible reasons behind such differences.
+
+\subsection{Further references}
+
+Below are a collection of references that may be of interest
+\cite{HAP}
+\cite{SDSC:report}
+\cite{Lowen:Fract}
+\cite{Lowen:1}
+\cite{Lowen:2}.
+On important reference which was only recently become available (as of
+February 1995 in New Zealand) is \cite{taqqu}.  One of its authors
+also co-wrote some of the Bellcore papers \cite{Bell:2} \cite{Bell:3}
+\cite{Bell:4}.

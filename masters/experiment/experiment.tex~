@@ -1,0 +1,81 @@
+\documentstyle[epsf]{article}
+
+\title{Determining Validity of Ethernet Sampling Program}
+\author{Ross Alexander}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Inorder to examine the behaviour of traffic on Ethernet segments a
+program was required accurately record all packets transmitted on that
+segment.  This was done using an IBM Personal Computer (PC) or
+compatible and a program written in C to time stamp and save the first
+$n$ octets of each packet.  The captured headers then had to be
+written out to permanent storage.
+
+Having written this program a series of controlled experiments were
+performed to check the validity and usefulness of the program.  Below
+are some of the requirements of interest.
+
+\begin{itemize}
+\item	A what rate of packet arrival does packet loss occur.
+
+\item	Does the size of the arriving packets effect packet loss.
+
+\item	In what form does packet loss happen.
+
+\item	How packet loss is effected by writing to permanent storage.
+\end{itemize}
+
+\section{The experiment}
+
+\subsection{Design}
+
+This experiment was performed using two machines connected via an
+isolated segment of Ethernet.  On one machine a packet generator
+executes while the other records all packets seen on the segment and
+writes then out to permanant storage.
+
+One important note is the relative processing power of each machine.
+While boths machines have compatible architectures one is at least
+twice as fast as the other.  This asymmetry enables the recording
+program to be ``tested to destruction'' while the packet generating
+remains stable.
+
+The experiment was carried out by subjecting the recording machine to
+various traffic loads (as specified by the generator's input
+parameters) and examining the resulting output file.
+
+\subsection{The packet generator}
+
+The packet generator generates $c$ packets of fixed size $s$ octets.
+Between each packet is a delay $d$.  The delay is just a count for a
+loop which performs a simple calculation.  This means the delay
+depends of the machine it is executing on.  Provided the delay is
+linear then this is of no real concern.  These three parameters can be
+specified on the command line.
+
+\begin{figure}
+\leavevmode
+\epsffile{size-rate-fit.eps}
+\caption{Packet size vs Output rate}
+\label{Expr:fig1}
+\end{figure}
+
+To examine the behaviour of the packet generator a series of packet
+generations was carried out from the slower to the faster machine.
+The experiment looked at the maximum rate (in packets per second) the
+generator could produce given a specific packet size.  The result can
+be seen in Figure~\ref{Expr:fig1}.
+
+The results suggest that beyond packet sizes of 400 octets the
+generator's output is bound by the I/O (Input / Output) of the
+machine, at about 710,000 octets/second or 693 K per second.  Packet
+sizes smaller than this are bound by the processing time needed to
+send each packet.
+
+\end{document}

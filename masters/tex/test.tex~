@@ -1,0 +1,20 @@
+\documentclass[a4paper]{ut-thesis}
+\usepackage{newcent}
+\usepackage{utthesis}
+%% \usepackage{verbatim}
+\usepackage{epsf}
+%% \usepackage{graphicx}
+%% \usepackage{amssymb}
+
+\begin{document}
+\begin{figure}
+  \epsffile{pics/pstack.eps}
+\end{figure}
+
+\begin{figure}
+\epsffile{pics/enet.eps}
+\caption{Ethernet II and IEEE 802.3 Frames}
+\label{network:enet}
+\end{figure}
+
+\end{document}

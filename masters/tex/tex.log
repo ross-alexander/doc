@@ -1,0 +1,175 @@
+This is TeX, Version 3.1415 (C version 6.1)
+(thesis.tex
+LaTeX2e <1994/12/01> patch level 1
+(/usr/local/TeX/lib/texmf/tex/latex2e/base/report.cls
+Document Class: report 1994/12/09 v1.2x Standard LaTeX document class
+(/usr/local/TeX/lib/texmf/tex/latex2e/base/size10.clo))
+(/usr/local/TeX/lib/texmf/tex/latex2e/packages/psnfss/sty/newcent.sty)
+(authesis.sty
+*************************************************************
+** UT Austin Thesis Style File, version 2.0, January 1995 
+** Written by Dinesh Das 
+** Dept. of Computer Sciences 
+** The University of Texas at Austin 
+*************************************************************
+) (/usr/local/TeX/lib/texmf/tex/latex2e/packages/tools/verbatim.sty) (epsf.sty)
+ (/usr/local/TeX/lib/texmf/tex/ams/amslatex/amssymb.sty
+(/usr/local/TeX/lib/texmf/tex/ams/amslatex/amsfonts.sty
+(/usr/local/TeX/lib/texmf/tex/ams/amslatex/amsgen.sty))) (thesis.aux (intro.aux
+) (networks.aux) (trace.aux) (models.aux) (results.aux) (simulation.aux)
+(conclusion.aux) (append.aux))
+(/usr/local/TeX/lib/texmf/tex/latex2e/packages/psnfss/fd/OT1pnc.fd) [1]
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+
+(/usr/local/TeX/lib/texmf/tex/ams/amslatex/Umsa.fd)
+(/usr/local/TeX/lib/texmf/tex/ams/amslatex/Umsb.fd) [2] (intro.tex
+Overfull \hbox (6.46729pt too wide) in paragraph at lines 23--30
+[]\OT1/pnc/m/n/10 The ques-tion then arises as to how to cope with these bursts
+. If a net-work provider
+[1]) (thesis.toc [1] [2] [3]
+Overfull \hbox (1.17978pt too wide) detected at line 151
+ \OT1/pnc/m/n/10 109
+
+Overfull \hbox (1.17978pt too wide) detected at line 152
+ \OT1/pnc/m/n/10 109
+
+Overfull \hbox (0.62985pt too wide) detected at line 157
+ \OT1/pnc/m/n/10 114
+
+Overfull \hbox (0.62985pt too wide) detected at line 159
+ \OT1/pnc/m/n/10 118
+
+Overfull \hbox (1.17978pt too wide) detected at line 161
+ \OT1/pnc/m/n/10 120
+
+Overfull \hbox (1.17978pt too wide) detected at line 163
+ \OT1/pnc/m/n/10 121
+[4]) [5] (networks.tex
+Chapter 1.
+[1] [2] [3] [4]
+(/usr/local/TeX/lib/texmf/tex/latex2e/packages/psnfss/fd/OT1pcr.fd)
+Overfull \hbox (3.63318pt too wide) in paragraph at lines 177--186
+[]\OT1/pnc/m/n/10 TCP/IP is de-ployed through-out the uni-ver-sity and is avail
+-able to all de-part-ments.
+[5] [6] [7] [8] [9] [10] [11]
+Overfull \hbox (12.04028pt too wide) in paragraph at lines 459--461
+[][] 
+[12])
+Overfull \hbox (0.19493pt too wide) in paragraph at lines 493--58
+\OT1/pnc/m/n/10 used to sep-a-rate the Uni-ver-sity net-work, the Auck-land lo-
+cal net-works con-nected though
+[13] [14] [15] [16] (trace.tex
+Chapter 2.
+[17] [18] [19] [20] [21] [22]
+Overfull \hbox (0.86317pt too wide) in paragraph at lines 199--202
+[]\OT1/pnc/m/n/10 The 1.19318 MHz clock gen-er-ates the clock sig-nals so that 
+the stan-dard PC BIOS
+[23] [24] [25] [26]) [27] [28] (models.tex
+Chapter 3.
+No file OMSpnc.fd.
+
+LaTeX Font Warning: Font shape `OMS/pnc/m/n ' undefined
+(Font)              using `OMS/cmsy/m/n' instead on input line 11.
+
+[29]
+Overfull \hbox (0.25476pt too wide) in paragraph at lines 35--39
+[]\OT1/pnc/m/n/10 Such be-haviour has se-ri-ous con-se-quences when ap-plied to
+ traf-fic mod-els be-cause
+
+Overfull \hbox (9.66656pt too wide) in paragraph at lines 49--54
+[]\OT1/pnc/m/n/10 The re-searchers at Bell-core pro-duced traces for Eth-er-net
+ LAN traf-fic, ISDN packet
+[30] [31]
+Overfull \hbox (2.37833pt too wide) in paragraph at lines 137--143
+[]\OT1/pnc/m/n/10 The be-haviour be-tween re-newal events may be com-plex. Of-t
+en the re-newal event
+[32]
+Overfull \hbox (2.9805pt too wide) in paragraph at lines 203--209
+\OT1/pnc/m/n/10 state in the mod-u-lated pro-cess has an as-so-ci-ated re-newal
+ pro-cess which pro-duces events.
+[33] [34] [35] [36] [37] [38] [39]) [40] (results.tex
+Chapter 4.
+
+Overfull \hbox (4.29071pt too wide) in paragraph at lines 5--10
+\OT1/pnc/m/n/10 In this chap-ter the we ex-am-ine four sam-ples from around the
+ Uni-ver-sity (See Fig-ure 4.1[]),
+
+Overfull \hbox (15.66527pt too wide) in paragraph at lines 20--31
+[][] 
+[41] [42] [43]
+Overfull \hbox (4.61134pt too wide) in paragraph at lines 140--144
+\OT1/pnc/m/n/10 packet count val-ues, say $\OML/cmm/m/it/10 size$ \OT1/pnc/m/n/
+10 long. Let the com-mand line max-i-mum be stored as $\OML/cmm/m/it/10 cmdmax$
+\OT1/pnc/m/n/10 . 
+[44] [45] [46] [47] [48] [49] [50] [51]
+Overfull \hbox (2.86285pt too wide) in paragraph at lines 358--369
+\OT1/pnc/m/n/10 broad-cast-ing IP route-ing in-for-ma-tion. It is not a very la
+rge amount of in-for-ma-tion (about
+[52] [53] [54]
+Overfull \hbox (1.49078pt too wide) in paragraph at lines 475--478
+\OT1/pnc/m/n/10 The Com-merce Post-grad-u-ate teach-ing lab-o-ra-tory con-sists
+ of about twenty per-sonal com-
+[55] [56] [57] [58] [59]
+Overfull \hbox (3.18777pt too wide) in paragraph at lines 570--579
+\OT1/pnc/m/n/10 ware ca-pa-ble routers broad-cast all avail-able Net-ware ser-v
+ices, such as file servers, print-
+[60] [61] [62]) [63] [64] [65] (simulation.tex
+Chapter 5.
+
+Overfull \hbox (9.70221pt too wide) in paragraph at lines 18--19
+[][]\OT1/pnc/m/n/10 10 super-imposed in-de-pen-dent re-newal pro-cesses with $\
+OML/cmm/m/it/10 t[] \OMS/pnc/m/n/10 ^^@ \OML/cmm/m/it/10 distribution$ \OT1/pnc
+/m/n/10 inter-renewal
+[66]
+Overfull \hbox (2.28342pt too wide) in paragraph at lines 39--44
+\OT1/pnc/m/n/10 Using the sim-plest model avail-able, that is ex-po-nen-tially 
+dis-tributed inter-arrival times,
+[67] [68] [69] [70] [71] [72] [73] [74]
+Overfull \hbox (3.58835pt too wide) in paragraph at lines 274--280
+\OT1/pnc/m/n/10 tion, in-di-cat-ing long range de-pen-dence. The slowly de-cay-
+ing vari-ance (fig-ure 5.14[]) shows
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[75] [76] [77] [78] [79] [80] [81]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (3.89651pt too wide) in paragraph at lines 469--478
+[]\OT1/pnc/m/n/10 The sim-u-la-tions make it plain that vi-sual in-spec-tion is
+ not enough. This is clearly
+[82] [83] [84] [85])
+Overfull \hbox (1.75485pt too wide) in paragraph at lines 479--62
+[]\OT1/pnc/m/n/10 Although the slope of the slowly de-cay-ing plot de-creases a
+s the num-ber of merged
+[86] [87] [88] (conclusion.tex
+Chapter 6.
+[89]
+Overfull \hbox (7.9708pt too wide) in paragraph at lines 49--55
+\OT1/pnc/m/n/10 heavy-tailed re-newal pro-cesses (re-newal pro-cesses that have
+ a heavy-tailed inter-renewal
+
+Overfull \hbox (3.63629pt too wide) in paragraph at lines 62--62
+[]\OT1/pnc/b/n/12 Producing self-similar be-haviour through sim-u-la-tion is no
+t
+
+Overfull \hbox (0.28345pt too wide) in paragraph at lines 68--73
+[]\OT1/pnc/m/n/10 This gives us a tool to em-pir-i-cally ex-am-ine self-similar
+ traf-fic from var-i-ous math-
+[90] [91]) [92] (append.tex
+Appendix A.
+[93] [94] [95] [96] [97] [98]
+Appendix B.
+[99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110] [111]
+[112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123])
+[124] (thesis.bbl [125]) [126] (thesis.aux (intro.aux) (networks.aux)
+(trace.aux) (models.aux) (results.aux) (simulation.aux) (conclusion.aux)
+(append.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+Output written on thesis.dvi (134 pages, 229508 bytes).
+Transcript written on thesis.log.

@@ -1,0 +1,170 @@
+\contentsline {chapter}{Contents}{3}{}%
+\contentsline {chapter}{List of Figures}{4}{}%
+\contentsline {chapter}{List of Tables}{6}{}%
+\contentsline {chapter}{\chapternumberline {0}Overview of the thesis}{7}{}%
+\contentsline {chapter}{\chapternumberline {1}Computer networks and protocols}{9}{}%
+\contentsline {section}{\numberline {1.1}Switched networks}{9}{}%
+\contentsline {subsection}{\numberline {1.1.1}Packet switching versus circuit switching}{9}{}%
+\contentsline {subsubsection}{\numberline {1.1.1.1}Circuit switching}{9}{}%
+\contentsline {subsubsection}{\numberline {1.1.1.2}Packet switching}{10}{}%
+\contentsline {subsubsection}{\numberline {1.1.1.3}Hybrid systems}{10}{}%
+\contentsline {subsubsection}{\numberline {1.1.1.4}Datagram networks}{10}{}%
+\contentsline {section}{\numberline {1.2}Network protocols}{11}{}%
+\contentsline {subsection}{\numberline {1.2.1}Internet Protocol}{11}{}%
+\contentsline {subsubsection}{\numberline {1.2.1.1}History and comments}{11}{}%
+\contentsline {subsubsection}{\numberline {1.2.1.2}Deployment within the University}{12}{}%
+\contentsline {subsection}{\numberline {1.2.2}AppleTalk}{12}{}%
+\contentsline {subsubsection}{\numberline {1.2.2.1}History and comments}{12}{}%
+\contentsline {subsubsection}{\numberline {1.2.2.2}Deployment within the University}{13}{}%
+\contentsline {subsection}{\numberline {1.2.3}IPX}{13}{}%
+\contentsline {subsubsection}{\numberline {1.2.3.1}History}{13}{}%
+\contentsline {subsubsection}{\numberline {1.2.3.2}Deployment within the University}{13}{}%
+\contentsline {section}{\numberline {1.3}Physical transmission media}{13}{}%
+\contentsline {subsection}{\numberline {1.3.1}Analog and digital transmission technologies}{14}{}%
+\contentsline {subsection}{\numberline {1.3.2}Point to point connections}{14}{}%
+\contentsline {subsubsection}{\numberline {1.3.2.1}Framing}{14}{}%
+\contentsline {subsubsection}{\numberline {1.3.2.2}Serial and parallel connections}{14}{}%
+\contentsline {subsection}{\numberline {1.3.3}Contention and bandwidth allocation}{15}{}%
+\contentsline {subsection}{\numberline {1.3.4}Broadcast media}{15}{}%
+\contentsline {subsection}{\numberline {1.3.5}Common transmission technologies}{16}{}%
+\contentsline {subsubsection}{\numberline {1.3.5.1}Ethernet}{16}{}%
+\contentsline {subsubsection}{\numberline {1.3.5.2}Token ring}{17}{}%
+\contentsline {subsubsection}{\numberline {1.3.5.3}FDDI}{17}{}%
+\contentsline {subsubsection}{\numberline {1.3.5.4}PPP and SLIP}{17}{}%
+\contentsline {section}{\numberline {1.4}The University campus network}{17}{}%
+\contentsline {subsection}{\numberline {1.4.1}Computer Centre network}{17}{}%
+\contentsline {subsection}{\numberline {1.4.2}Gateway network}{18}{}%
+\contentsline {chapter}{\chapternumberline {2}Network tracing}{21}{}%
+\contentsline {section}{\numberline {2.1}Producing a packet trace}{21}{}%
+\contentsline {subsection}{\numberline {2.1.1}Format of the trace file}{21}{}%
+\contentsline {subsection}{\numberline {2.1.2}Hardware used to produce the traces}{22}{}%
+\contentsline {subsection}{\numberline {2.1.3}Software used to generate the trace file}{22}{}%
+\contentsline {subsubsection}{\numberline {2.1.3.1}Data structures used}{23}{}%
+\contentsline {subsubsection}{\numberline {2.1.3.2}Flow of polling loop}{23}{}%
+\contentsline {subsubsection}{\numberline {2.1.3.3}Flow during interrupt}{23}{}%
+\contentsline {subsection}{\numberline {2.1.4}Known problems}{24}{}%
+\contentsline {subsubsection}{\numberline {2.1.4.1}Errors with the timer}{24}{}%
+\contentsline {subsubsection}{\numberline {2.1.4.2}Machine crashes after program exits}{26}{}%
+\contentsline {section}{\numberline {2.2}Testing the packet tracer}{26}{}%
+\contentsline {subsection}{\numberline {2.2.1}Introduction}{26}{}%
+\contentsline {subsection}{\numberline {2.2.2}Design}{26}{}%
+\contentsline {subsection}{\numberline {2.2.3}The packet generator}{27}{}%
+\contentsline {subsection}{\numberline {2.2.4}Experiment - determining the maximum output rate}{27}{}%
+\contentsline {subsection}{\numberline {2.2.5}Summary of packet trace test}{29}{}%
+\contentsline {chapter}{\chapternumberline {3}Stochastic Models of Packet Arrivals}{31}{}%
+\contentsline {section}{\numberline {3.1}Poisson process}{32}{}%
+\contentsline {subsection}{\numberline {3.1.1}Definition}{32}{}%
+\contentsline {subsection}{\numberline {3.1.2}Remarks}{32}{}%
+\contentsline {section}{\numberline {3.2}Renewal processes}{33}{}%
+\contentsline {subsection}{\numberline {3.2.1}Simple renewal processes}{33}{}%
+\contentsline {subsection}{\numberline {3.2.2}Definition}{33}{}%
+\contentsline {subsection}{\numberline {3.2.3}Remarks}{33}{}%
+\contentsline {subsection}{\numberline {3.2.4}Processes with internal structure}{34}{}%
+\contentsline {section}{\numberline {3.3}Modulated processes}{34}{}%
+\contentsline {subsection}{\numberline {3.3.1}Markov modulated Poisson processes}{34}{}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}Definition}{34}{}%
+\contentsline {subsubsection}{\numberline {3.3.1.2}Remarks}{35}{}%
+\contentsline {subsection}{\numberline {3.3.2}Generalised modulated processes}{35}{}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}Definition}{35}{}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}Remarks}{36}{}%
+\contentsline {section}{\numberline {3.4}Merged Processes}{37}{}%
+\contentsline {subsection}{\numberline {3.4.1}Definition}{37}{}%
+\contentsline {subsection}{\numberline {3.4.2}Remarks}{37}{}%
+\contentsline {section}{\numberline {3.5}Slowly decaying variances}{37}{}%
+\contentsline {subsection}{\numberline {3.5.1}Processes with infinite moments}{37}{}%
+\contentsline {subsubsection}{\numberline {3.5.1.1}Definition of the Pareto distribution}{37}{}%
+\contentsline {subsection}{\numberline {3.5.2}Aggregating stochastic processes}{38}{}%
+\contentsline {section}{\numberline {3.6}Fixed interval counting}{39}{}%
+\contentsline {chapter}{\chapternumberline {4}Experimental Results}{41}{}%
+\contentsline {section}{\numberline {4.1}Introduction}{41}{}%
+\contentsline {section}{\numberline {4.2}Processing trace files}{41}{}%
+\contentsline {subsection}{\numberline {4.2.1}Correcting the timer problem}{42}{}%
+\contentsline {subsection}{\numberline {4.2.2}Producing frequency data}{42}{}%
+\contentsline {subsection}{\numberline {4.2.3}Dividing trace into protocols}{42}{}%
+\contentsline {subsection}{\numberline {4.2.4}Producing the histograms}{43}{}%
+\contentsline {subsection}{\numberline {4.2.5}Producing slowly decaying variance results}{43}{}%
+\contentsline {section}{\numberline {4.3}Mean and standard deviation of samples}{43}{}%
+\contentsline {section}{\numberline {4.4}Graphs of results}{44}{}%
+\contentsline {subsection}{\numberline {4.4.1}Packet Count versus octet count}{44}{}%
+\contentsline {subsection}{\numberline {4.4.2}Graphs by segment}{45}{}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}University Computer Centre network}{45}{}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}Department of Statistics network}{45}{}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}External gateway network of the University}{50}{}%
+\contentsline {subsubsection}{\numberline {4.4.2.4}Commerce postgraduate teaching laboratory}{53}{}%
+\contentsline {subsection}{\numberline {4.4.3}Graphs by protocol}{56}{}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}Internet Protocol}{56}{}%
+\contentsline {subsubsection}{\numberline {4.4.3.2}AppleTalk}{57}{}%
+\contentsline {subsubsection}{\numberline {4.4.3.3}Netware IPX}{59}{}%
+\contentsline {section}{\numberline {4.5}Slowly decaying variance}{60}{}%
+\contentsline {chapter}{\chapternumberline {5}Simulation}{63}{}%
+\contentsline {section}{\numberline {5.1}Introduction}{63}{}%
+\contentsline {section}{\numberline {5.2}Simulation of simple Poisson process}{64}{}%
+\contentsline {subsection}{\numberline {5.2.1}Exponential arrival distribution}{64}{}%
+\contentsline {subsection}{\numberline {5.2.2}Single state with uniform inter-arrival time distribution}{64}{}%
+\contentsline {section}{\numberline {5.3}Generalised modulated renewal process}{67}{}%
+\contentsline {subsection}{\numberline {5.3.1}The model}{67}{}%
+\contentsline {subsection}{\numberline {5.3.2}The program}{67}{}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}An example}{67}{}%
+\contentsline {section}{\numberline {5.4}Infinite variance renewal processes}{71}{}%
+\contentsline {subsection}{\numberline {5.4.1}Introduction}{71}{}%
+\contentsline {subsection}{\numberline {5.4.2}Pareto distribution}{71}{}%
+\contentsline {subsection}{\numberline {5.4.3}Cauchy and $t$ distributions}{73}{}%
+\contentsline {subsection}{\numberline {5.4.4}Merged $t_2-distribution$ renewal processes}{77}{}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{85}{}%
+\contentsline {section}{\numberline {6.1}What was achieved}{85}{}%
+\contentsline {subsection}{\numberline {6.1.1}Modest resources suffice}{85}{}%
+\contentsline {subsection}{\numberline {6.1.2}Samples available for future reference}{85}{}%
+\contentsline {subsection}{\numberline {6.1.3}The Bellcore results are reproducible}{85}{}%
+\contentsline {subsection}{\numberline {6.1.4}Producing self-similar behaviour through simulation is not difficult}{86}{}%
+\contentsline {section}{\numberline {6.2}What was not achieved}{86}{}%
+\contentsline {subsection}{\numberline {6.2.1}Bugs in the tracing program}{86}{}%
+\contentsline {subsection}{\numberline {6.2.2}Unknown physical processes}{86}{}%
+\contentsline {section}{\numberline {6.3}Possible follow up work}{86}{}%
+\contentsline {subsection}{\numberline {6.3.1}Effects of self-similar traffic on network controls}{86}{}%
+\contentsline {subsection}{\numberline {6.3.2}Looking at network protocol behaviour}{87}{}%
+\contentsline {subsection}{\numberline {6.3.3}Further references}{87}{}%
+\contentsline {appendix}{\chapternumberline {A}Underlying Mathematics}{89}{}%
+\contentsline {section}{\numberline {A.1}Random variables}{89}{}%
+\contentsline {subsection}{\numberline {A.1.1}Definition}{89}{}%
+\contentsline {subsection}{\numberline {A.1.2}Moments of random variables}{89}{}%
+\contentsline {subsection}{\numberline {A.1.3}Collections of random variables}{90}{}%
+\contentsline {subsection}{\numberline {A.1.4}Moment generating functions}{90}{}%
+\contentsline {subsubsection}{\numberline {A.1.4.1}Definition}{90}{}%
+\contentsline {subsubsection}{\numberline {A.1.4.2}Sums of independent random variables}{90}{}%
+\contentsline {section}{\numberline {A.2}Poisson processes}{90}{}%
+\contentsline {subsection}{\numberline {A.2.1}Definition}{90}{}%
+\contentsline {subsection}{\numberline {A.2.2}Inter-arrival times}{91}{}%
+\contentsline {subsection}{\numberline {A.2.3}Simple model using Poisson distribution}{91}{}%
+\contentsline {subsection}{\numberline {A.2.4}Moment Generating Function}{91}{}%
+\contentsline {section}{\numberline {A.3}Common distribution functions}{92}{}%
+\contentsline {subsection}{\numberline {A.3.1}Exponential}{92}{}%
+\contentsline {subsection}{\numberline {A.3.2}Gamma}{92}{}%
+\contentsline {subsection}{\numberline {A.3.3}Chi-Squared}{92}{}%
+\contentsline {subsection}{\numberline {A.3.4}Normal}{92}{}%
+\contentsline {subsection}{\numberline {A.3.5}Student's t}{92}{}%
+\contentsline {subsection}{\numberline {A.3.6}Cauchy}{92}{}%
+\contentsline {section}{\numberline {A.4}Example of aggregated Poisson processes}{93}{}%
+\contentsline {appendix}{\chapternumberline {B}Source Code}{95}{}%
+\contentsline {section}{\numberline {B.1}The Network tracer}{95}{}%
+\contentsline {subsubsection}{\numberline {B.1.0.1}common.h}{95}{}%
+\contentsline {subsubsection}{\numberline {B.1.0.2}asmpkt.asm}{96}{}%
+\contentsline {subsubsection}{\numberline {B.1.0.3}hwtimer.asm}{98}{}%
+\contentsline {subsubsection}{\numberline {B.1.0.4}driver.c}{99}{}%
+\contentsline {subsubsection}{\numberline {B.1.0.5}main.c}{103}{}%
+\contentsline {subsection}{\numberline {B.1.1}Time error correction program}{104}{}%
+\contentsline {subsubsection}{\numberline {B.1.1.1}correct.c}{104}{}%
+\contentsline {section}{\numberline {B.2}Analysis programs}{106}{}%
+\contentsline {subsection}{\numberline {B.2.1}Common code}{106}{}%
+\contentsline {subsubsection}{\numberline {B.2.1.1}\texttt {mathlib.h}}{106}{}%
+\contentsline {subsubsection}{\numberline {B.2.1.2}\texttt {common.h}}{106}{}%
+\contentsline {subsubsection}{\numberline {B.2.1.3}\texttt {vector.h}}{108}{}%
+\contentsline {subsubsection}{\numberline {B.2.1.4}\texttt {common.cc}}{108}{}%
+\contentsline {subsection}{\numberline {B.2.2}Arrival}{110}{}%
+\contentsline {subsubsection}{\numberline {B.2.2.1}\texttt {arrival.cc}}{110}{}%
+\contentsline {subsection}{\numberline {B.2.3}Stat}{113}{}%
+\contentsline {subsubsection}{\numberline {B.2.3.1}\texttt {stat.cc}}{113}{}%
+\contentsline {subsection}{\numberline {B.2.4}Hist}{115}{}%
+\contentsline {subsubsection}{\numberline {B.2.4.1}\texttt {hist.cc}}{115}{}%
+\contentsline {subsection}{\numberline {B.2.5}Single-event}{116}{}%
+\contentsline {subsubsection}{\numberline {B.2.5.1}\texttt {single-event.cc}}{116}{}%
+\contentsline {chapter}{Bibliography}{121}{}%

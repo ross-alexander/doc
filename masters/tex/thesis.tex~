@@ -1,0 +1,73 @@
+\documentclass[a4paper]{aucklandthesis}
+\usepackage{newcent}
+\usepackage{verbatim}
+\usepackage{epsf}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+%% \mastersthesis
+
+% \leftchapter                       %% Uncomment one of these if you want
+% \centerchapter                     %% left-justified, centered or
+% \rightchapter                      %% right-justified chapter headings.
+                                     %% Chapter headings includes the
+                                     %% Contents, Acknowledgments, Lists
+                                     %% of Tables and Figures and the Vita.
+                                     %% The default is \centerchapter.
+
+% \singlespace                       %% Uncomment one of these if you want
+% \oneandhalfspace                   %% single-spacing, space-and-a-half
+% \doublespace                       %% or double-spacing; the default is
+                                     %% \oneandhalfspace, which is the
+                                     %% minimum spacing accepted by the
+                                     %% Graduate School.
+
+%% \centerchapter
+%% \oneandhalfspace
+
+\title{Monitoring, Analysis and Simulation of Packet Switched Network Traffic}
+
+\author{Ross Alexander}
+
+\degreesought{Masters of Science}
+
+\degreediscipline{Mathematics}
+
+\degreecompletionyear{1984}
+
+%% \renewcommand{\thesissupervisor}{Ilze Ziedins, Nevil Brownlee}
+
+%% \renewcommand{\thesisauthoraddress}{\texttt{r.alexander@auckland.ac.nz}
+ 
+% \title{Monitoring, Analysis and Simulation of Packet Switched Network Traffic\\A thesis submitted in partial fulfilment of the requirements for the degree of Masters of Science in Statistics, University of Auckland, 1995}
+% \author{Ross Alexander\\Department of Statistics\\The University ofAuckland\\{\tt rossa@auckland.ac.nz}}
+% \date{\today}
+
+\begin{document}
+
+\maketitle
+
+%%\thesistitlepage
+%% \thesissignaturepage
+
+\include{abstract}
+
+\tableofcontents
+
+\listoffigures
+\listoftables
+
+\setcounter{chapter}{-1}
+\include{intro}
+\include{network}
+\include{trace}
+\include{models}
+\include{results}
+\include{simulation}
+\include{conclusion}
+\include{append}
+
+\bibliographystyle{plain}
+\bibliography{thesis}
+
+\end{document}

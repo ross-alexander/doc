@@ -1,0 +1,194 @@
+\appendix
+
+\chapter{Underlying Mathematics}
+
+\section{Random Variables}
+
+\subsection{Definition}
+
+A random variable is a variable which can take a selection of values,
+either finite in count, otherwise infinite, and are describes as {\em
+discrete} and {\em continuous} respectively.
+
+Associated with every random variable are a collection of probability
+functions.  For all random variables there is the {\em probability
+distribution function} which is defined as $F_x(x) = P(X \leq x)$.
+For discrete random variables there is also the {\em probability
+function} defined as $f_x(x) = P(X = x)$.  The continuous analogue is
+the {\em probability density function} $f_x$.  These are related in
+the following way.  For discrete random variables
+\[ F_x(x) = P(X \leq x) = \sum_{j = - \infty}^{x}{P(X = j)} \]
+and for continuous random variables
+\[ F_x(x) = P(x \leq x) = \int_{ - \infty}^{x}{f_x dt} \]
+
+\subsection{Moments of Random Variables}
+
+{\em Moments} are values which describe the behaviour of a random
+variable.  These include the {\em mean} and {\em variance}.  These are
+calculated from the probability function or probability density
+function.  The is done through the expectation function $E[X]$.  The
+first moment is the mean $\mu$, which gives the {\em average} or
+expected output of a random variable.
+
+\[ \mu = E[X] = \sum_{x = -\infty}^{\infty}{x f_x(x)} \]
+for discrete random variables and for continuous random varibles
+\[ \mu = E[X] = \int_{-\infty}^{\infty}{x f_x dx} \]
+
+The next moment is the variance $\mbox{Var}[X] = \sigma^2$ where
+$\sigma$ is the {\em standard deviation}.  This is a measure of the
+{\em spread} of a distribution given by how far from the mean the
+can values lie.  This is calculated by the $E[(X-\mu)^2]$.  This is
+also known as the second moment.  Higher order moments are calculated
+by expectation of higher orders of $X$.
+
+\[ \sigma^2 = E[(X-\mu)^2] = E[X(X-1)] - \mu(\mu-1) = \sum_{j =
+-\infty}^{\infty}{x(x-1) f_x} - \mu(\mu-1) \]
+for discrete random variables and for continuous random variables
+\[ \sigma^2 = E[(X-\mu)^2] = E[X^2] - \mu^2 =
+\int_{-\infty}^{\infty}{x^2 f_x dx} - \mu^2 \]
+
+\subsection{Collections of Random Variables}
+
+Often more than one random variable is required.  For this we
+construct vectors of random variables $X = (X_1, X_2, \ldots, X_{n-1},
+X_n)$.  It is common for each $X_i$ is to be {\em independant and
+identically distributed (iid)}.
+
+\subsection{Moment Generating Functions}
+
+\subsubsection{Definition}
+
+A {\em Moment generating functions} (mgf) is a transform on a
+probability function or probability density function for discrete and
+continuous distributions respectivity.  It is defined by
+\[ \mbox{M}_x(t) = \mbox{E}[e^{xt}] \]
+For discrete distributions this equates to
+\[ \mbox{M}_x(t) = \mbox{E}[e^{xt}] = \sum_{x =
+-\infty}^{\infty}e^{et}f_x(x) \]
+and for continuous distributions
+\[ \mbox{M}_x(t) = \mbox{E}[e^{xt}] = \int_{-\infty}^{\infty}e^{et}f_x dx \]
+
+\subsubsection{Sums of Indendendent Random Varibles}
+
+If ${X_i : i = 1 \ldots n}$ are indendendent random variables and $Y =
+\sum_{i = 1}^{n}{X_i}$ then the moment generating function of $Y$ is
+\[
+M_y(t) = M_{X_1 + \cdots + X_n}(t) = \prod_{i = 1}^{n}{M_{X_i}(t)}
+\]
+
+\section{Poisson Processes}
+
+\subsection{Definition}
+
+The Poisson process is a model for events (arrivals/occurances) that
+happen randomly in time or space.  Suppose that arrivals occur
+randomly in the interval $(0,t]$.  Let N(t) be the number of events by
+time $t$.
+
+A Poisson process iwth intensity (or rate) $\lambda, 0 < \lambda <
+\infty$ is a process
+\[
+  N = {N(t) : t \geq 0} \mbox{ taking values in } S = {0,1,2,3, \ldots}
+\]
+\begin{itemize}
+\item $N(0) = 0$ ; if $s \leq t$ then $N(s) \leq N(t)$.
+\item If $s < t$ then $N(t) - N(s)$ in the interval $(s,t]$ is
+independant of the number and times of arrivals during $(0,t]$.
+\item The number of events in any interval of length $t$ is
+distributed by Possion$(\lambda t)$ where
+\[
+  P(N(t) = j) = f_x(j) =
+    \left\{
+      \begin{array}{ll}
+ 	\frac{e^{-\lambda t}(\lambda t)^j}{j!} & j \geq 0 \\
+	0 & \mbox{otherwise}
+      \end{array}
+    \right.
+\]
+with $\mbox{E}[X] = \lambda t$ and $\mbox{Var}[X] = \lambda t$.
+\end{itemize}
+
+Poisson processes come up often in operations research and are
+commonly used as a first approximation to an unknown distribution.
+The behaviour of poisson processes are very well known, especially
+with respect to queueing models.
+
+\subsection{Interarrival times}
+
+Poisson distributions measure events within a given time period.  It
+can be shown that the time between subsequent events is the continuous
+exponential distribution
+
+\[
+  f_x(x) =
+    \left\{
+      \begin{array}{ll}
+ 	\lambda e^{-\lambda x} & x > 0 \\
+	0 & \mbox{otherwise}
+      \end{array}
+    \right.
+\]
+with $\mbox{E}[X] = \frac{1}{\lambda}$ and $\mbox{Var}[X] =
+\frac{1}{\lambda^2}$.
+
+Using this it is possible to generate sample relisations of the
+poisson process for statistical analysis.
+
+\subsection{Simple Model using Poisson Distribution}
+
+In the simplest model we just generate pseudo packets with exponential
+inter-arrival times.  This is done by transforming a uniform $U(0,1)$
+distribution, which is just the standard C {\em random()} function, to
+an exponential distribution $\mbox{Exp}(\lambda)$.
+
+\subsection{Moment Generating Function}
+
+The moment generating function of a Poisson distribution $X_i$ with
+parameter $\lambda_i t$ is
+\[
+\mbox{M}_x(s) = \mbox{E}[e^{sx}] = e^{\lambda t(e^s - 1)}
+\]
+hence the aggregation of several Poisson distributions is
+\[ \mbox{M}_x(s) = \prod_{i=1}^n{e^{\lambda_i t(e^s-1)}} =
+e^{\lambda^* t(e^s-1)} \]
+where $\lambda^* = \sum_{i=1}^n{\lambda_i}$, given us a Poisson
+distribution with parameter $\lambda^*t$.
+
+\section{Slow Decaying Variances}
+
+One of the methods for testing whether a sample has been generated
+from a Poisson process is to see you the variance behaves under
+averaged aggregation.
+
+\subsection{Poisson Processes}
+
+As above the aggregation of mulitple Poisson distributions is another
+Poisson distribution.  The average of multiple Poisson distributions,
+$\bar X = \sum_{i=1}^{n}{\frac{X_i}{n}}$.  Using moment generating
+functions we see
+\[ \mbox{M}_{\bar X}(s) = \left[\mbox{M}_X(\frac{s}{n})\right]^n\]
+
+\section{Common Distribution Functions}
+
+\subsection{Exponential}
+\subsection{Gamma}
+\subsection{Chi-Squared}
+\subsection{Normal}
+\subsection{T}
+\subsection{Cauchy}
+
+\chapter{Source Code}
+
+\section{The Packet Tracer}
+
+\subsection{The Test Generator}
+
+\section{Analysis Programs}
+
+\subsection{Common code}
+
+\subsection{Arrival}
+
+\subsection{Stat}
+
+\subsection{Moments}

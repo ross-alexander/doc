@@ -1,0 +1,166 @@
+'\chapter{Experimental Results}
+
+\begin{figure}
+{\small \begin{tabular}{|l|l|l|l|l|l|} \hline
+Date & Location & Traffic Mix & Load & Time & Packet Count \\ \hline \hline
+14 May & Computer Centre & AppleTalk, Telnet & Light & 14 minutes & 400,021 \\
+ & Staff Network & Novell client & & & \\ \hline
+13 June & Gateway to & Various IP & Light & 102 minutes & 329,379 \\
+ & Outside World & & & & \\ \hline 
+1 August & Statistics & IP, mainly NFS & Medium & 118 minutes & 400,048 \\
+ & & & & & \\ \hline
+1 September & Commerce & NetBIOS from & Medium & 94 minutes & 800,002 \\
+ & & Windows NT & & & \\ \hline
+\end{tabular}}
+\caption{Traffic Samples from around The University of Auckland}
+\label{trace:sampletable}
+\end{figure}
+
+For this section I have taken a four samples from around the
+University (See Figure~\ref{trace:sampletable}) over a period of five
+months during the year.  These have been chosen to give a wide
+selection of different protocols and traffic conditions.
+
+\section{Mean and Variance of Samples}
+
+\subsection{Results by Segment}
+
+\begin{figure}
+{\begin{tabular}{|p{4cm}|r|r|r|} \hline
+Sample & Interval & Mean & Variance \\ \hline \hline
+Gateway Network & 10s & 537.5 & 13,300 \\
+		& 1s & 53.7 & 305.390 \\
+		& 100ms & 5.37 & 11.483 \\
+		& 10ms & 0.537 & 0.744 \\ \hline
+Subnet 1 & 10s & 3,008 & 1,974,893 \\
+	 & 1s & 300.7 & 35,633 \\
+	 & 100ms & 30.08 & 546 \\
+	 & 10ms & 3.008 & 8.921 \\ \hline
+Subnet 93 & 10s & 561 & 181,669 \\
+	  & 1s & 56.1 & 4,211.3 \\
+	  & 100ms & 5.61 & 83.439 \\
+	  & 10ms & 0.561 & 2.058 \\ \hline
+Commerce  & 10s & 1,408.5 & 312,670 \\
+	  & 1s  & 140.85  & 4,768.9 \\
+	  & 100ms & 14.085 & 81.98 \\
+	  & 10ms & 1.408 & 2.896 \\ \hline 
+\end{tabular}}
+\end{figure}
+
+\section{Frequency/Time Graphs of Results}
+
+Below are a collection of graphs showing packet count against time.
+Although little statistical information can be gained from these
+graphs it can be seen visually the wide range of different behaviours
+exhibited by Ethernet traffic.
+
+\subsection{Graphs by Segment}
+
+An attempt was made to try and get a wide sample of different traffic
+behaviours from around the university campus.
+
+\subsubsection{Subnet 1 of the University Network}
+
+\begin{figure}
+\leavevmode
+\epsfysize=3in
+\epsffile{snet1-1s-freq.eps}
+\caption{Subnet 1 with time interval 1 second}
+\label{simple:snet1.1s.freq}
+\end{figure}
+
+Figure~\ref{simple:snet1.1s.freq} shows the 1,000 seconds of samples
+taken from subnet 1.  This traffic has a steady background level of
+traffic with frequent bursts.
+
+\subsubsection{Subnet 93 of the University Network}
+
+\begin{figure}
+\leavevmode
+\epsfysize=3in
+\epsffile{snet93-1s-freq.eps}
+\caption{Subnet 93 with time interval 1 second}
+\label{simple:snet93.1s.freq}
+\end{figure}
+
+Figure~\ref{simple:snet93.1s.freq} shows a much lightly loaded segment
+with minimal background traffic but still exhibiting very bursty
+traffic.
+
+\subsubsection{External Gateway Network of the University}
+
+\begin{figure}
+\leavevmode
+\epsfysize=3in
+\epsffile{gatew-1s-freq.eps}
+\caption{Gateway network with time interval 1 second}
+\label{simple:gatew.1s.freq}
+\end{figure}
+
+Figure~\ref{simple:gatew.1s.freq} has an extremely light load with a
+considerable amount (with respect to the total) of the traffic as a
+steady background flow.  The bursts are much smaller in conparison to
+the other segments, with 
+
+\subsection{Graphs by Protocol}
+
+
+Below are three graphs showing the most prevalent protocols used
+around the university, that is IP, AppleTalk and Netware IPX.
+
+\subsubsection{Internet Protocol}
+
+\begin{figure}
+\leavevmode
+\epsfysize=3in
+\epsffile{snet1-ip-1s.eps}
+\caption{IP traffic on subnet 1 with time interval 1 second}
+\label{simple:snet1.ip.1s.freq}
+\end{figure}
+
+Figure~\ref{simple:snet1.ip.1s.freq} shows Internet Protocols traffic.
+This graphs shows a reasonable (with respect to the peak maximums)
+amount of background traffic.  This is most likely a result of a
+steady level of remote login and mail traffic.
+
+\subsubsection{AppleTalk}
+
+\begin{figure}
+\leavevmode
+\epsfysize=3in
+\epsffile{snet1-apt-1s.eps}
+\caption{AppleTalk traffic on subnet 1 with time interval 1 second}
+\label{simple:snet1.apt.1s.freq}
+\end{figure}
+
+Figure~\ref{simple:snet1.apt.1s.freq} shows AppleTalk traffic on
+subnet 1.  Because there is very little AppleTalk traffic on subnet 1
+events become more pronounced and noticable.  AppleTalk has periodic
+broadcasts to relay routing and directory services (zone maps)
+information.
+
+\subsubsection{Netware IPX}
+
+\begin{figure}
+\leavevmode
+\epsfysize=3in
+\epsffile{snet1-nov-1s.eps}
+\caption{IPX traffic on subnet 1 with time interval 1 second}
+\label{simple:snet1.nov.1s.freq}
+\end{figure}
+
+Figure~\ref{simple:snet1.nov.1s.freq} show Netware traffic on subnet 1.
+While it looks like there is considerable IPX traffic in fact there is
+little file transfer traffic.  The large bursts of traffic come from
+Netware's service announcements.  Every two minutes Netware capable
+routers broadcast all available Netware services, such as file
+servers, printing spoolers and mail exchanges.  Due to the number of
+these services around the university is amounts to over 500 kilobytes
+of information.
+
+\section{Results over short time periods}
+
+\section{Packet Count vs Octet Count}
+
+\section{Slow decay varience}
+
